@@ -1,0 +1,118 @@
+[
+  {
+    "id": 0,
+    "parts": ["Cuando ", " pequeño, mi abuelo ", " tocar la guitarra todas las noches."],
+    "blanks": [
+      {"infinitive": "ser", "answer": "era", "tense": "imperfect", "hint": "ser (yo, imperf.)"},
+      {"infinitive": "soler", "answer": "solía", "tense": "imperfect", "hint": "soler (él, imperf.)"}
+    ],
+    "rationale": [
+      "era → imperfecto: describes a continuous past state (\"when I was young\" sets the habitual backdrop).",
+      "solía → imperfecto: soler + infinitive expresses habitual past action (\"used to play every night\")."
+    ]
+  },
+  {
+    "id": 1,
+    "parts": ["Un día, él me ", " la guitarra y me ", " que algún día sería mía."],
+    "blanks": [
+      {"infinitive": "mostrar", "answer": "mostró", "tense": "preterite", "hint": "mostrar (él, pret.)"},
+      {"infinitive": "decir", "answer": "dijo", "tense": "preterite", "hint": "decir (él, pret.)"}
+    ],
+    "rationale": [
+      "mostró → pretérito: a single completed action on a specific day.",
+      "dijo → pretérito: a specific statement made at that moment, fully completed."
+    ]
+  },
+  {
+    "id": 2,
+    "parts": ["La guitarra ", " vieja y ", " una grieta pequeña en el cuerpo."],
+    "blanks": [
+      {"infinitive": "ser", "answer": "era", "tense": "imperfect", "hint": "ser (ella, imperf.)"},
+      {"infinitive": "tener", "answer": "tenía", "tense": "imperfect", "hint": "tener (ella, imperf.)"}
+    ],
+    "rationale": [
+      "era → imperfecto: describes a characteristic/physical state of the guitar, not a change.",
+      "tenía → imperfecto: describes an ongoing physical feature — background description."
+    ]
+  },
+  {
+    "id": 3,
+    "parts": ["Mi abuelo me ", " que la ", " cuando tenía veinte años."],
+    "blanks": [
+      {"infinitive": "contar", "answer": "contó", "tense": "preterite", "hint": "contar (él, pret.)"},
+      {"infinitive": "comprar", "answer": "compró", "tense": "preterite", "hint": "comprar (él, pret.)"}
+    ],
+    "rationale": [
+      "contó → pretérito: the act of telling is a discrete, completed event.",
+      "compró → pretérito: a specific purchase completed at one point in the past."
+    ]
+  },
+  {
+    "id": 4,
+    "parts": ["Yo ", " nervioso, pero ", " las primeras notas con cuidado."],
+    "blanks": [
+      {"infinitive": "estar", "answer": "estaba", "tense": "imperfect", "hint": "estar (yo, imperf.)"},
+      {"infinitive": "tocar", "answer": "toqué", "tense": "preterite", "hint": "tocar (yo, pret.)"}
+    ],
+    "rationale": [
+      "estaba → imperfecto: describes an emotional state acting as background context.",
+      "toqué → pretérito: playing those notes was a single completed action."
+    ]
+  },
+  {
+    "id": 5,
+    "parts": ["Mi abuelo me ", " mientras yo ", " y no dijo nada."],
+    "blanks": [
+      {"infinitive": "escuchar", "answer": "escuchaba", "tense": "imperfect", "hint": "escuchar (él, imperf.)"},
+      {"infinitive": "practicar", "answer": "practicaba", "tense": "imperfect", "hint": "practicar (yo, imperf.)"}
+    ],
+    "rationale": [
+      "escuchaba → imperfecto: listening was ongoing/simultaneous background to my playing.",
+      "practicaba → imperfecto: practicing was also continuous; both actions overlap in duration."
+    ]
+  },
+  {
+    "id": 6,
+    "parts": ["De repente, él ", " y me ", " un abrazo fuerte."],
+    "blanks": [
+      {"infinitive": "levantarse", "answer": "se levantó", "tense": "preterite", "hint": "levantarse (él, pret.)"},
+      {"infinitive": "dar", "answer": "dio", "tense": "preterite", "hint": "dar (él, pret.)"}
+    ],
+    "rationale": [
+      "se levantó → pretérito: de repente signals a sudden punctual interruption — a completed action.",
+      "dio → pretérito: a single completed gesture at that moment."
+    ]
+  },
+  {
+    "id": 7,
+    "parts": ["Yo sabía que la música nos ", " de manera especial."],
+    "blanks": [
+      {"infinitive": "unir", "answer": "unía", "tense": "imperfect", "hint": "unir (ella, imperf.)"}
+    ],
+    "rationale": [
+      "unía → imperfecto: expresses a general ongoing truth or state in the past, not a specific event."
+    ]
+  },
+  {
+    "id": 8,
+    "parts": ["Esa noche, ", " hasta muy tarde y luego ", " juntos."],
+    "blanks": [
+      {"infinitive": "tocar", "answer": "tocamos", "tense": "preterite", "hint": "tocar (nosotros, pret.)"},
+      {"infinitive": "dormirse", "answer": "nos dormimos", "tense": "preterite", "hint": "dormirse (nosotros, pret.)"}
+    ],
+    "rationale": [
+      "tocamos → pretérito: that specific night is a bounded, completed session.",
+      "nos dormimos → pretérito: falling asleep was a puntual completed event at the end of that night."
+    ]
+  },
+  {
+    "id": 9,
+    "parts": ["Hoy, cuando ", " esa guitarra, siempre pienso en él."],
+    "blanks": [
+      {"infinitive": "tocar", "answer": "toco", "tense": "present", "hint": "tocar (yo, presente)"}
+    ],
+    "rationale": [
+      "toco → presente: the frame shifts to today — \"whenever I play\" — contrasting past memory with present reality."
+    ]
+  }
+]

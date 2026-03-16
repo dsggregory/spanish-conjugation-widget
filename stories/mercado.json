@@ -1,0 +1,112 @@
+[
+  {
+    "id": 0,
+    "parts": ["Era sábado y yo ", " mucho hambre cuando ", " al mercado."],
+    "blanks": [
+      {
+        "infinitive": "tener",
+        "answer": "tenía",
+        "tense": "imperfect",
+        "hint": "tener (yo, imperf.)"
+      },
+      {
+        "infinitive": "ir",
+        "answer": "fui",
+        "tense": "preterite",
+        "hint": "ir (yo, pret.)"
+      }
+    ],
+    "rationale": [
+      "tenía → imperfecto: describes an ongoing physical state (hunger) that existed as background context.",
+      "fui → pretérito: going to the market was a single, completed trip on that specific Saturday."
+    ]
+  },
+  {
+    "id": 1,
+    "parts": ["Los puestos ", " llenos de frutas y la gente ", " por todas partes."],
+    "blanks": [
+      {
+        "infinitive": "estar",
+        "answer": "estaban",
+        "tense": "imperfect",
+        "hint": "estar (ellos, imperf.)"
+      },
+      {
+        "infinitive": "caminar",
+        "answer": "caminaba",
+        "tense": "imperfect",
+        "hint": "caminar (ella, imperf.)"
+      }
+    ],
+    "rationale": [
+      "estaban → imperfecto: describes the scene as I found it — a background, descriptive state.",
+      "caminaba → imperfecto: people walking is ongoing background activity, setting the atmosphere."
+    ]
+  },
+  {
+    "id": 2,
+    "parts": ["De repente, una señora me ", " y me ", " una muestra de mango."],
+    "blanks": [
+      {
+        "infinitive": "llamar",
+        "answer": "llamó",
+        "tense": "preterite",
+        "hint": "llamar (ella, pret.)"
+      },
+      {
+        "infinitive": "ofrecer",
+        "answer": "ofreció",
+        "tense": "preterite",
+        "hint": "ofrecer (ella, pret.)"
+      }
+    ],
+    "rationale": [
+      "llamó → pretérito: de repente signals a sudden, punctual interruption — a completed action.",
+      "ofreció → pretérito: offering the sample was a single, discrete completed event."
+    ]
+  },
+  {
+    "id": 3,
+    "parts": ["El mango ", " dulce, así que ", " dos kilos."],
+    "blanks": [
+      {
+        "infinitive": "ser",
+        "answer": "era",
+        "tense": "imperfect",
+        "hint": "ser (él, imperf.)"
+      },
+      {
+        "infinitive": "comprar",
+        "answer": "compré",
+        "tense": "preterite",
+        "hint": "comprar (yo, pret.)"
+      }
+    ],
+    "rationale": [
+      "era → imperfecto: describes an inherent quality of the mango — a descriptive state, not a change.",
+      "compré → pretérito: buying two kilos was a specific, completed transaction."
+    ]
+  },
+  {
+    "id": 4,
+    "parts": ["Mientras yo ", " a casa, ", " que el mercado siempre me alegra el día."],
+    "blanks": [
+      {
+        "infinitive": "volver",
+        "answer": "volvía",
+        "tense": "imperfect",
+        "hint": "volver (yo, imperf.)"
+      },
+      {
+        "infinitive": "pensar",
+        "answer": "pensé",
+        "tense": "preterite",
+        "hint": "pensar (yo, pret.)"
+      }
+    ],
+    "rationale": [
+      "volvía → imperfecto: walking home was an ongoing action that served as the background frame.",
+      "pensé → pretérito: the thought occurred as a single, completed mental event within that walk."
+    ]
+  }
+]

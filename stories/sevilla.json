@@ -1,0 +1,133 @@
+[
+  {
+    "id": 0,
+    "parts": ["Cuando ", " pequeño, siempre ", " que algún día ", " a España."],
+    "blanks": [
+      {
+        "infinitive": "ser",
+        "answer": "era",
+        "tense": "imperfect",
+        "hint": "ser (yo, imperf.)"
+      },
+      {
+        "infinitive": "esperar",
+        "answer": "esperaba",
+        "tense": "imperfect",
+        "hint": "esperar (yo, imperf.)"
+      },
+      {
+        "infinitive": "ir",
+        "answer": "fuera",
+        "tense": "subjunctive_imperfect",
+        "hint": "ir (yo, subj. imperf.)"
+      }
+    ],
+    "rationale": [
+      "era → imperfecto: sets the habitual past backdrop — an ongoing state of being young.",
+      "esperaba → imperfecto: hoping was a continuous, habitual feeling during childhood, not a single event.",
+      "fuera → subjuntivo imperfecto: after esperar que, the subordinate clause requires the imperfect subjunctive. The trip was uncertain and desired, not a fact."
+    ]
+  },
+  {
+    "id": 1,
+    "parts": ["Por fin, mi profesora me ", " que ", " una beca para estudiar en Sevilla."],
+    "blanks": [
+      {
+        "infinitive": "decir",
+        "answer": "dijo",
+        "tense": "preterite",
+        "hint": "decir (ella, pret.)"
+      },
+      {
+        "infinitive": "conseguir",
+        "answer": "había conseguido",
+        "tense": "past_perfect",
+        "hint": "conseguir (yo, pret. perf. comp.)"
+      }
+    ],
+    "rationale": [
+      "dijo → pretérito: a specific, completed statement at one moment.",
+      "había conseguido → pretérito perfecto compuesto (pluscuamperfecto): the winning of the scholarship happened before the telling — an action completed prior to another past action."
+    ]
+  },
+  {
+    "id": 2,
+    "parts": ["Mis padres ", " que yo ", " mucho cuidado durante el viaje."],
+    "blanks": [
+      {
+        "infinitive": "pedir",
+        "answer": "pidieron",
+        "tense": "preterite",
+        "hint": "pedir (ellos, pret.)"
+      },
+      {
+        "infinitive": "tener",
+        "answer": "tuviera",
+        "tense": "subjunctive_imperfect",
+        "hint": "tener (yo, subj. imperf.)"
+      }
+    ],
+    "rationale": [
+      "pidieron → pretérito: asking was a single, completed act — they asked me once at a specific moment.",
+      "tuviera → subjuntivo imperfecto: pedir que triggers the subjunctive. The main verb is in the preterite, so the subordinate clause uses imperfect subjunctive (sequence of tenses rule)."
+    ]
+  },
+  {
+    "id": 3,
+    "parts": ["Cuando el avión ", " en Sevilla, el sol ", " y la ciudad ", " preciosa."],
+    "blanks": [
+      {
+        "infinitive": "aterrizar",
+        "answer": "aterrizó",
+        "tense": "preterite",
+        "hint": "aterrizar (él, pret.)"
+      },
+      {
+        "infinitive": "brillar",
+        "answer": "brillaba",
+        "tense": "imperfect",
+        "hint": "brillar (él, imperf.)"
+      },
+      {
+        "infinitive": "ser",
+        "answer": "era",
+        "tense": "imperfect",
+        "hint": "ser (ella, imperf.)"
+      }
+    ],
+    "rationale": [
+      "aterrizó → pretérito: landing was a punctual, completed event.",
+      "brillaba → imperfecto: the sun shining is an ongoing background condition — part of the scene I arrived into.",
+      "era → imperfecto: describes an inherent quality of the city as I perceived it — a descriptive state, not a change."
+    ]
+  },
+  {
+    "id": 4,
+    "parts": ["No ", " que el flamenco me ", " tanto hasta que ", " mi primera actuación."],
+    "blanks": [
+      {
+        "infinitive": "imaginar",
+        "answer": "imaginaba",
+        "tense": "imperfect",
+        "hint": "imaginar (yo, imperf.)"
+      },
+      {
+        "infinitive": "emocionar",
+        "answer": "emocionara",
+        "tense": "subjunctive_imperfect",
+        "hint": "emocionar (él, subj. imperf.)"
+      },
+      {
+        "infinitive": "ver",
+        "answer": "vi",
+        "tense": "preterite",
+        "hint": "ver (yo, pret.)"
+      }
+    ],
+    "rationale": [
+      "imaginaba → imperfecto: not imagining was a continuous prior state — an ongoing assumption before the show.",
+      "emocionara → subjuntivo imperfecto: imaginar que in a negative context introduces doubt/uncertainty, triggering the subjunctive. The emotion was not yet a known fact.",
+      "vi → pretérito: seeing the performance was a single, completed event that changed everything."
+    ]
+  }
+]
