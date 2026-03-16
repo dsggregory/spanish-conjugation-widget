@@ -1,0 +1,148 @@
+[
+  {
+    "id": 0,
+    "parts": ["Hace tres años que ", " en esta empresa, pero últimamente ", " que algo ", " que cambiar."],
+    "blanks": [
+      {
+        "infinitive": "trabajar",
+        "answer": "trabajo",
+        "tense": "present",
+        "hint": "trabajar (yo, presente)"
+      },
+      {
+        "infinitive": "sentir",
+        "answer": "he sentido",
+        "tense": "present_perfect",
+        "hint": "sentir (yo, pres. perf.)"
+      },
+      {
+        "infinitive": "tener",
+        "answer": "tiene",
+        "tense": "present",
+        "hint": "tener (algo, presente)"
+      }
+    ],
+    "rationale": [
+      "trabajo → presente: hace + time expression + que + present tense describes an action that started in the past and is still ongoing — 'I have been working here for three years.'",
+      "he sentido → pretérito perfecto compuesto (present perfect): a recently completed experience with relevance to the present moment — the feeling has built up and still matters now.",
+      "tiene → presente: states a current general truth or condition, not a past event."
+    ]
+  },
+  {
+    "id": 1,
+    "parts": ["Mis colegas me ", " que nunca ", " un trabajo tan estable, y que ", " bien en quedarme."],
+    "blanks": [
+      {
+        "infinitive": "decir",
+        "answer": "han dicho",
+        "tense": "present_perfect",
+        "hint": "decir (ellos, pres. perf.)"
+      },
+      {
+        "infinitive": "haber",
+        "answer": "han tenido",
+        "tense": "present_perfect",
+        "hint": "tener (ellos, pres. perf.)"
+      },
+      {
+        "infinitive": "hacer",
+        "answer": "haría",
+        "tense": "conditional",
+        "hint": "hacer (yo, condicional)"
+      }
+    ],
+    "rationale": [
+      "han dicho → pretérito perfecto compuesto: colleagues have said this on various occasions up to now — a repeated past action with present relevance.",
+      "han tenido → pretérito perfecto compuesto: their claim about never having had such a stable job spans up to the present, linking past experience to the current argument.",
+      "haría → condicional: expresses what I would do — a hypothetical outcome contingent on staying, not a certain fact."
+    ]
+  },
+  {
+    "id": 2,
+    "parts": ["Sin embargo, si yo ", " más valiente, ya ", " mi propia empresa."],
+    "blanks": [
+      {
+        "infinitive": "ser",
+        "answer": "fuera",
+        "tense": "subjunctive_imperfect",
+        "hint": "ser (yo, subj. imperf.)"
+      },
+      {
+        "infinitive": "fundar",
+        "answer": "habría fundado",
+        "tense": "conditional_perfect",
+        "hint": "fundar (yo, condicional perf.)"
+      }
+    ],
+    "rationale": [
+      "fuera → subjuntivo imperfecto: si + imperfect subjunctive opens a contrary-to-fact conditional — I am not braver, so this is hypothetical.",
+      "habría fundado → condicional perfecto: the consequence of a contrary-to-fact past condition — what would have already happened by now if things had been different. Together, fuera + habría fundado form the classic si-clause perfect conditional structure."
+    ]
+  },
+  {
+    "id": 3,
+    "parts": ["Para cuando ", " cuarenta años, ", " suficiente dinero para intentarlo."],
+    "blanks": [
+      {
+        "infinitive": "cumplir",
+        "answer": "cumpla",
+        "tense": "subjunctive_present",
+        "hint": "cumplir (yo, subj. pres.)"
+      },
+      {
+        "infinitive": "ahorrar",
+        "answer": "habré ahorrado",
+        "tense": "future_perfect",
+        "hint": "ahorrar (yo, futuro perf.)"
+      }
+    ],
+    "rationale": [
+      "cumpla → subjuntivo presente: para cuando + a future reference always requires the present subjunctive in Spanish — the turning-40 event is anticipated but not yet real.",
+      "habré ahorrado → futuro perfecto: expresses an action that will have been completed by a specific future point. The saving happens before the milestone of turning 40."
+    ]
+  },
+  {
+    "id": 4,
+    "parts": ["El año que viene, ", " con un asesor financiero y ", " un plan concreto."],
+    "blanks": [
+      {
+        "infinitive": "hablar",
+        "answer": "hablaré",
+        "tense": "future",
+        "hint": "hablar (yo, futuro)"
+      },
+      {
+        "infinitive": "elaborar",
+        "answer": "elaboraré",
+        "tense": "future",
+        "hint": "elaborar (yo, futuro)"
+      }
+    ],
+    "rationale": [
+      "hablaré → futuro simple: el año que viene signals a definite future intention — a planned action.",
+      "elaboraré → futuro simple: a second planned future action linked to the first, expressing firm intent."
+    ]
+  },
+  {
+    "id": 5,
+    "parts": ["Cuando llegue ese momento, ", " que tomé la decisión correcta porque siempre ", " en mis sueños."],
+    "blanks": [
+      {
+        "infinitive": "saber",
+        "answer": "sabré",
+        "tense": "future",
+        "hint": "saber (yo, futuro)"
+      },
+      {
+        "infinitive": "creer",
+        "answer": "he creído",
+        "tense": "present_perfect",
+        "hint": "creer (yo, pres. perf.)"
+      }
+    ],
+    "rationale": [
+      "sabré → futuro simple: expresses certainty about a future state of knowing — what I will know when that moment arrives.",
+      "he creído → pretérito perfecto compuesto: siempre he creído describes a belief that began in the past and extends continuously up to the present moment, reinforcing that the conviction is still alive now."
+    ]
+  }
+]

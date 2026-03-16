@@ -1,0 +1,26 @@
+// Story partial (server-rendered with go-template, loaded by HTMX)
+{{/* expects []Sentence */}}
+{{ range . }}
+  {{ $s := . }}
+  <div class="card" id="card-{{ $s.ID }}">
+    <div class="card-num">Sentence {{ add $s.ID 1 }}</div>
+    <div class="sentence">
+      {{ $sid := $s.ID }}
+      {{ $parts := $s.Parts }}
+      {{ range $i, $p := $parts }}
+        {{ $p }}
+        {{ if lt $i (len $s.Blanks) }}
+          {{ $b := index $s.Blanks $i }}
+          <span class="blank-group">
+            <input type="text" id="inp-{{ $sid }}-{{ $i }}" autocomplete="off" autocorrect="off" spellcheck="false">
+            <span class="blank-hint">{{ $b.Infinitive }} → ?</span>
+            <span class="badge {{ badgeClass $b.Tense }}">{{ badgeLabel $b.Tense }}</span>
+          </span>
+        {{ end }}
+      {{ end }}
+    </div>
+    {{ range $i, $_ := $s.Blanks }}
+      <div class="rationale" id="rat-{{ $sid }}-{{ $i }}"></div>
+    {{ end }}
+  </div>
+{{ end }}
