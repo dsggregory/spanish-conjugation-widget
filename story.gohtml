@@ -1,6 +1,18 @@
-// Story partial (server-rendered with go-template, loaded by HTMX)
-{{/* expects []Sentence */}}
-{{ range . }}
+{{/* Story partial (server-rendered with go-template, loaded by HTMX) */}}
+{{/* expects StoryViewData { Sentences, Tenses } */}}
+
+{{ if .Tenses }}
+<div class="legend">
+  {{ range .Tenses }}
+    <div class="leg-item">
+      <span class="badge {{ badgeClass . }}">{{ badgeLabel . }}</span>
+      {{ legendDesc . }}
+    </div>
+  {{ end }}
+</div>
+{{ end }}
+
+{{ range .Sentences }}
   {{ $s := . }}
   <div class="card" id="card-{{ $s.ID }}">
     <div class="card-num">Sentence {{ add $s.ID 1 }}</div>

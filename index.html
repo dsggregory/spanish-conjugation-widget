@@ -23,6 +23,7 @@
             display: inline-block; font-size: 0.7rem; font-weight: 600;
             padding: 2px 10px; border-radius: 99px; letter-spacing: 0.03em;
         }
+        .badge-none { background: #e2e0d8; color: #555; }
         .badge-pret { background: #faeeda; color: #854f0b; }
         .badge-imp  { background: #e1f5ee; color: #0f6e56; }
         .badge-pres { background: #e6f1fb; color: #185fa5; }
@@ -112,17 +113,7 @@
         </select>
     </div>
 
-    <div class="legend">
-        <div class="leg-item"><span class="badge badge-pret">pretérito</span> completed past action</div>
-        <div class="leg-item"><span class="badge badge-imp">imperfecto</span> ongoing / habitual / descriptive</div>
-        <div class="leg-item"><span class="badge badge-pres">presente</span> present tense</div>
-        <div class="leg-item"><span class="badge badge-impr">imperativo</span> command action</div>
-        <div class="leg-item"><span class="badge badge-perf">perfecto</span> completed future action</div>
-        <div class="leg-item"><span class="badge badge-subj">subjuntivo</span> desires, wishes</div>
-        <div class="leg-item"><span class="badge badge-subj-imp">subjuntivo imperfecto</span> past desires, wishes</div>
-        <div class="leg-item"><span class="badge badge-cond">condicional</span> conditional</div>
-        <div class="leg-item"><span class="badge badge-fut">futuro</span> future tense</div>
-    </div>
+    <!-- Legend is rendered dynamically with each story; removed from base template. -->
 
     <div class="progress-wrap"><div class="progress-bar" id="progress"></div></div>
 
@@ -289,7 +280,8 @@
     const badgeToggler = document.getElementById('toggle-badges');
     function applyBadgeVisibility() {
         const checked = badgeToggler.checked;
-        document.querySelectorAll('.badge').forEach(b => {
+        // Only toggle badges inside sentence blanks; keep legend badges always visible
+        document.querySelectorAll('.blank-group .badge').forEach(b => {
             b.style.display = checked ? 'none' : 'inline-block';
         });
     }

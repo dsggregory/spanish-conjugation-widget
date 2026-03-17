@@ -173,32 +173,36 @@ var (
 
 func tenseBadgeClass(tense string) string {
 	switch tense {
+	case "present":
+		return "badge-pres"
 	case "preterite":
 		return "badge-pret"
 	case "imperfect":
 		return "badge-imp"
-	case "subjunctive":
+	case "subjunctive_present":
 		return "badge-subj"
 	case "subjunctive_imperfect":
 		return "badge-subj-imp"
 	case "imperative":
-		return "badge-imper"
+		return "badge-impr"
 	case "conditional":
 		return "badge-cond"
 	case "future":
 		return "badge-fut"
 	default:
-		return "badge-pres"
+		return "badge-none"
 	}
 }
 
 func tenseBadgeLabel(tense string) string {
 	switch tense {
+	case "present":
+		return "presente"
 	case "preterite":
 		return "pretérito"
 	case "imperfect":
 		return "imperfecto"
-	case "subjunctive":
+	case "subjunctive_present":
 		return "subjuntivo"
 	case "subjunctive_imperfect":
 		return "subjuntivo imperfecto"
@@ -209,8 +213,59 @@ func tenseBadgeLabel(tense string) string {
 	case "future":
 		return "futuro"
 	default:
-		return "presente"
+		return "?"
 	}
+}
+
+// tenseLegendDesc provides a short human-readable description for each tense,
+// used in the legend rendered with the story.
+func tenseLegendDesc(tense string) string {
+	switch tense {
+	case "preterite":
+		return "completed past action"
+	case "imperfect":
+		return "ongoing / habitual / descriptive"
+	case "present":
+		return "present tense"
+	case "imperative":
+		return "command action"
+	case "conditional":
+		return "conditional"
+	case "future":
+		return "future tense"
+	case "subjunctive_present":
+		return "desires, wishes"
+	case "subjunctive_imperfect":
+		return "past desires, wishes"
+	default:
+		return tense
+	}
+}
+
+// StoryViewData is the data model for the story partial template.
+type StoryViewData struct {
+	Sentences []Sentence
+	Tenses    []string
+}
+
+// collectTenses returns unique tenses present in the given sentences, in order
+// of first appearance.
+func collectTenses(ss []Sentence) []string {
+	seen := make(map[string]bool)
+	var out []string
+	for _, s := range ss {
+		for _, b := range s.Blanks {
+			t := b.Tense
+			if t == "" {
+				t = "present" // default label mapping
+			}
+			if !seen[t] {
+				seen[t] = true
+				out = append(out, t)
+			}
+		}
+	}
+	return out
 }
 
 func handleIndex(w http.ResponseWriter, r *http.Request) {
@@ -225,7 +280,7 @@ func handleIndex(w http.ResponseWriter, r *http.Request) {
 		storyFiles = []string{}
 	}
 	data := struct{ StoryFiles []string }{StoryFiles: storyFiles}
-	if err := tmplIndex.Execute(w, data); err != nil {
+	if err := tmplIndex.ExecuteTemplate(w, "index.html", data); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
@@ -237,7 +292,8 @@ func handleStory(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	if err := tmplStory.Execute(w, sentences); err != nil {
+	data := StoryViewData{Sentences: sentences, Tenses: collectTenses(sentences)}
+	if err := tmplStory.ExecuteTemplate(w, "story.gohtml", data); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
@@ -271,7 +327,8 @@ func handleLoadStory(w http.ResponseWriter, r *http.Request) {
 	}
 	// Render the story partial with the newly loaded sentences.
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	if err := tmplStory.Execute(w, sentences); err != nil {
+	data := StoryViewData{Sentences: sentences, Tenses: collectTenses(sentences)}
+	if err := tmplStory.ExecuteTemplate(w, "story.gohtml", data); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
@@ -295,6 +352,7 @@ func main() {
 	fm := template.FuncMap{
 		"badgeClass": tenseBadgeClass,
 		"badgeLabel": tenseBadgeLabel,
+		"legendDesc": tenseLegendDesc,
 		"add":        func(a, b int) int { return a + b },
 	}
 	var err error
