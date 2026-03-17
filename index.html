@@ -116,7 +116,7 @@
         </select>
     </div>
 
-    <!-- Legend is rendered dynamically with each story; removed from base template. -->
+    <!-- Legend is rendered dynamically with each story -->
 
     <div class="progress-wrap"><div class="progress-bar" id="progress"></div></div>
 
@@ -136,24 +136,6 @@
     async function loadSentences() {
         const res = await fetch('/api/sentences');
         sentenceData = await res.json();
-    }
-
-    function badgeClass(tense) {
-        if (tense === 'preterite') return 'badge-pret';
-        if (tense === 'imperfect') return 'badge-imp';
-        if (tense === 'subjunctive') return 'badge-subj';
-        if (tense === 'imperative') return 'badge-impr';
-        if (tense === 'perfect') return 'badge-perf';
-        if (tense === 'subjunctive_imperfect') return 'badge-subj-imp';
-        if (tense === 'conditional') return 'badge-cond';
-        if (tense === 'future') return 'badge-fut';
-        return 'badge-pres';
-    }
-
-    function badgeLabel(tense) {
-        if (tense === 'preterite') return 'pretérito';
-        if (tense === 'imperfect') return 'imperfecto';
-        return tense;
     }
 
     // HTMX hook to update progress when story content is loaded
