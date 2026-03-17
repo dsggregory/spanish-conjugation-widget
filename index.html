@@ -67,6 +67,7 @@
         .blank-group input.incorrect{ border-bottom-color: #e24b4a; color: #a32d2d; }
         .blank-group input.revealed { border-bottom-color: #378add; color: #185fa5; background: #e6f1fb; border-radius: 3px; }
         .blank-hint { font-size: 0.68rem; color: #999; font-style: italic; margin-top: 2px; }
+        .blank-hint.has-hint { cursor: help; text-decoration: underline dotted; text-underline-offset: 2px; }
 
         /* Rationale */
         .rationale {
@@ -289,6 +290,8 @@
     }
     badgeToggler.addEventListener('change', applyBadgeVisibility);
     document.addEventListener('DOMContentLoaded', applyBadgeVisibility);
+
+    // Hints are shown via native tooltips using the title attribute on .blank-hint
 </script>
 </body>
 </html>

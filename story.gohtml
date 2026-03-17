@@ -26,7 +26,11 @@
           {{ $b := index $s.Blanks $i }}
           <span class="blank-group">
             <input type="text" id="inp-{{ $sid }}-{{ $i }}" autocomplete="off" autocorrect="off" spellcheck="false">
+            {{ if $b.Hint }}
+            <span class="blank-hint has-hint" title="{{ $b.Hint }}">{{ $b.Infinitive }} → ?</span>
+            {{ else }}
             <span class="blank-hint">{{ $b.Infinitive }} → ?</span>
+            {{ end }}
             <span class="badge {{ badgeClass $b.Tense }}">{{ badgeLabel $b.Tense }}</span>
           </span>
         {{ end }}
