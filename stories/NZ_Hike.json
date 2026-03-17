@@ -1,0 +1,133 @@
+[
+  {
+    "id": 0,
+    "parts": ["El sendero ", " empinado y el viento ", " fuerte cuando ", " la primera colina."],
+    "blanks": [
+      {
+        "infinitive": "ser",
+        "answer": "era",
+        "tense": "imperfect",
+        "hint": "ser (él, imperf.)"
+      },
+      {
+        "infinitive": "soplar",
+        "answer": "soplaba",
+        "tense": "imperfect",
+        "hint": "soplar (él, imperf.)"
+      },
+      {
+        "infinitive": "subir",
+        "answer": "subí",
+        "tense": "preterite",
+        "hint": "subir (yo, pret.)"
+      }
+    ],
+    "rationale": [
+      "era → imperfecto: describes a permanent characteristic of the trail — background scene-setting, not a change.",
+      "soplaba → imperfecto: the wind blowing was an ongoing condition already in progress, part of the atmosphere I walked into.",
+      "subí → pretérito: climbing the first hill was a single, bounded, completed action with a clear start and end."
+    ]
+  },
+  {
+    "id": 1,
+    "parts": ["Desde la cima, ", " un lago azul que ", " entre las montañas como un espejo."],
+    "blanks": [
+      {
+        "infinitive": "ver",
+        "answer": "vi",
+        "tense": "preterite",
+        "hint": "ver (yo, pret.)"
+      },
+      {
+        "infinitive": "brillar",
+        "answer": "brillaba",
+        "tense": "imperfect",
+        "hint": "brillar (él, imperf.)"
+      }
+    ],
+    "rationale": [
+      "vi → pretérito: seeing the lake was a single, completed perceptual event — the moment I looked and it registered.",
+      "brillaba → imperfecto: the lake shining was a continuous ongoing state that existed independently — I arrived into it, I didn't cause it to begin."
+    ]
+  },
+  {
+    "id": 2,
+    "parts": ["De repente, unas ovejas ", " el camino y yo ", " que esperar varios minutos."],
+    "blanks": [
+      {
+        "infinitive": "cruzar",
+        "answer": "cruzaron",
+        "tense": "preterite",
+        "hint": "cruzar (ellas, pret.)"
+      },
+      {
+        "infinitive": "tener",
+        "answer": "tuve",
+        "tense": "preterite",
+        "hint": "tener (yo, pret.)"
+      }
+    ],
+    "rationale": [
+      "cruzaron → pretérito: de repente signals a sudden, punctual interruption — the sheep crossing was a discrete completed event.",
+      "tuve → pretérito: tener que + infinitive in the preterite means 'had to' as a specific obligation that arose and was fulfilled at that moment, not a habitual state."
+    ]
+  },
+  {
+    "id": 3,
+    "parts": ["Mientras ", " por el valle, ", " el sonido del río y ", " el olor a pino."],
+    "blanks": [
+      {
+        "infinitive": "caminar",
+        "answer": "caminaba",
+        "tense": "imperfect",
+        "hint": "caminar (yo, imperf.)"
+      },
+      {
+        "infinitive": "escuchar",
+        "answer": "escuchaba",
+        "tense": "imperfect",
+        "hint": "escuchar (yo, imperf.)"
+      },
+      {
+        "infinitive": "sentir",
+        "answer": "sentía",
+        "tense": "imperfect",
+        "hint": "sentir (yo, imperf.)"
+      }
+    ],
+    "rationale": [
+      "caminaba → imperfecto: mientras introduces an ongoing background action — walking through the valley was the continuous frame.",
+      "escuchaba → imperfecto: hearing the river was a simultaneous, ongoing sensory experience, not a single moment.",
+      "sentía → imperfecto: smelling the pine was also a continuous sensory state layered into the same background moment."
+    ]
+  },
+  {
+    "id": 4,
+    "parts": ["Al final del día, ", " al refugio exhausto, me ", " las botas y ", " dormido en segundos."],
+    "blanks": [
+      {
+        "infinitive": "llegar",
+        "answer": "llegué",
+        "tense": "preterite",
+        "hint": "llegar (yo, pret.)"
+      },
+      {
+        "infinitive": "quitar",
+        "answer": "quité",
+        "tense": "preterite",
+        "hint": "quitar (yo, pret.)"
+      },
+      {
+        "infinitive": "quedarse",
+        "answer": "me quedé",
+        "tense": "preterite",
+        "hint": "quedarse (yo, pret.)"
+      }
+    ],
+    "rationale": [
+      "llegué → pretérito: arriving at the refuge was a single, completed event that closed out the day.",
+      "quité → pretérito: taking off the boots was a discrete, sequential completed action — one thing after another.",
+      "me quedé → pretérito: quedarse dormido in the preterite expresses the moment of falling asleep — a punctual change of state, not an ongoing condition."
+    ]
+  }
+]

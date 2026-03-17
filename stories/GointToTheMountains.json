@@ -1,0 +1,141 @@
+[
+  {
+    "id": 0,
+    "parts": ["Este fin de semana ", " con mis amigos a las montañas — algo que ", " con muchas ganas desde hace semanas."],
+    "blanks": [
+      {
+        "infinitive": "ir",
+        "answer": "voy",
+        "tense": "present",
+        "hint": "ir (yo, presente)"
+      },
+      {
+        "infinitive": "esperar",
+        "answer": "espero",
+        "tense": "present",
+        "hint": "esperar (yo, presente)"
+      }
+    ],
+    "rationale": [
+      "voy → presente: ir + a destination in the present tense expresses a definite near-future plan — more immediate and certain than the simple future. 'Voy a las montañas' treats the trip as already set.",
+      "espero → presente: esperar with con ganas describes a current ongoing emotional state, not a future event. The anticipation exists right now."
+    ]
+  },
+  {
+    "id": 1,
+    "parts": ["El sábado por la mañana, nos ", " a las seis y ", " hacia el sendero antes del amanecer."],
+    "blanks": [
+      {
+        "infinitive": "despertar",
+        "answer": "despertaremos",
+        "tense": "future",
+        "hint": "despertar (nosotros, futuro)"
+      },
+      {
+        "infinitive": "salir",
+        "answer": "saldremos",
+        "tense": "future",
+        "hint": "salir (nosotros, futuro)"
+      }
+    ],
+    "rationale": [
+      "despertaremos → futuro simple: a planned action at a specific future time — more deliberate and scheduled-sounding than the present tense, emphasizing commitment to the plan.",
+      "saldremos → futuro simple: salir is an irregular future stem (saldr-). A second planned sequential action, reinforcing the sense of a firm itinerary."
+    ]
+  },
+  {
+    "id": 2,
+    "parts": ["Si el tiempo ", " bueno, la vista desde la cima ", " espectacular."],
+    "blanks": [
+      {
+        "infinitive": "estar",
+        "answer": "está",
+        "tense": "present",
+        "hint": "estar (él, presente)"
+      },
+      {
+        "infinitive": "ser",
+        "answer": "será",
+        "tense": "future",
+        "hint": "ser (ella, futuro)"
+      }
+    ],
+    "rationale": [
+      "está → presente: si + present indicative opens a real, open conditional — the weather being good is genuinely possible, not hypothetical. Spanish uses present indicative here, never future, after si in open conditionals.",
+      "será → futuro simple: the consequence of a real open condition uses the future tense — what will happen if the condition is met."
+    ]
+  },
+  {
+    "id": 3,
+    "parts": ["Sin duda, mis amigos ", " parar a descansar, pero yo ", " seguir hasta la cumbre."],
+    "blanks": [
+      {
+        "infinitive": "querer",
+        "answer": "querrán",
+        "tense": "future",
+        "hint": "querer (ellos, futuro)"
+      },
+      {
+        "infinitive": "preferir",
+        "answer": "preferiré",
+        "tense": "future",
+        "hint": "preferir (yo, futuro)"
+      }
+    ],
+    "rationale": [
+      "querrán → futuro simple: querer is an irregular future stem (querr-). The future here expresses a confident prediction about what others will want — not a known fact, but a strong expectation.",
+      "preferiré → futuro simple: contrasts my future preference against theirs. Two futures in the same sentence highlight competing future intentions between different subjects."
+    ]
+  },
+  {
+    "id": 4,
+    "parts": ["Si ", " más tiempo, ", " dos días enteros y ", " una hoguera por la noche."],
+    "blanks": [
+      {
+        "infinitive": "tener",
+        "answer": "tuviéramos",
+        "tense": "subjunctive_imperfect",
+        "hint": "tener (nosotros, subj. imperf.)"
+      },
+      {
+        "infinitive": "quedarse",
+        "answer": "nos quedaríamos",
+        "tense": "conditional",
+        "hint": "quedarse (nosotros, condicional)"
+      },
+      {
+        "infinitive": "hacer",
+        "answer": "haríamos",
+        "tense": "conditional",
+        "hint": "hacer (nosotros, condicional)"
+      }
+    ],
+    "rationale": [
+      "tuviéramos → subjuntivo imperfecto: si + imperfect subjunctive opens a contrary-to-fact conditional — we don't have more time, so this is purely hypothetical. Contrast with sentence 3 where si + present indicative expressed a real possibility.",
+      "nos quedaríamos → condicional: the consequence of a hypothetical si-clause uses the conditional — what we would do if circumstances were different.",
+      "haríamos → condicional: a second conditional action in the same hypothetical scenario, both contingent on the same unmet condition."
+    ]
+  },
+  {
+    "id": 5,
+    "parts": ["Por ahora, solo sé que este fin de semana ", " exactamente lo que ", " — aire fresco, buena compañía y montañas."],
+    "blanks": [
+      {
+        "infinitive": "ser",
+        "answer": "será",
+        "tense": "future",
+        "hint": "ser (él, futuro)"
+      },
+      {
+        "infinitive": "necesitar",
+        "answer": "necesito",
+        "tense": "present",
+        "hint": "necesitar (yo, presente)"
+      }
+    ],
+    "rationale": [
+      "será → futuro simple: a confident prediction about an upcoming event — not a plan exactly, but an anticipation of how things will turn out.",
+      "necesito → presente: what I need is a current, immediate truth — not future, not hypothetical. The present tense grounds the sentence in the speaker's existing emotional reality, contrasting with the future será."
+    ]
+  }
+]
