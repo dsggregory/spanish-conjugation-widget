@@ -66,6 +66,46 @@ Example (single sentence):
 ]
 ```
 
+## Ask AI for a new story
+Here's a prompt you could paste into a new AI chat. Take the resulting JSON story and save into the `./stories` directory.
+
+---
+
+> Write a Spanish verb conjugation exercise as a JSON file using this exact structure:
+>
+> ```json
+> [
+>   {
+>     "id": 0,
+>     "parts": ["Text before first blank ", " text between blanks ", " text after last blank."],
+>     "blanks": [
+>       {
+>         "infinitive": "verb in infinitive form",
+>         "answer": "correct conjugation",
+>         "tense": "tense identifier string",
+>         "hint": "verb (person, tense abbreviation)"
+>       }
+>     ],
+>     "rationale": [
+>       "conjugation → tense name: explanation of why this tense is used here."
+>     ]
+>   }
+> ]
+> ```
+>
+> Rules:
+> - `parts` always has exactly one more element than `blanks` — they interleave: part[0], blank[0], part[1], blank[1], etc.
+> - `tense` should be one of: `present`, `preterite`, `imperfect`, `present_perfect`, `past_perfect`, `future`, `future_perfect`, `conditional`, `conditional_perfect`, `subjunctive_present`, `subjunctive_imperfect`
+> - `rationale` has one entry per blank, explaining the grammar rule that determines the tense choice
+> - Answer matching should be lenient — accept answers with or without accent marks
+>
+> Write a short story of 5–6 sentences on the topic of [YOUR TOPIC HERE] using the tenses [LIST TENSES HERE]. Make the tense choices pedagogically deliberate — pair contrasting tenses within sentences where possible to highlight the distinction.
+
+Swap in your topic and target tenses at the bottom. For example:
+- *"a trip to a foreign city"* using *preterite, imperfect, and present perfect*
+- *"a career decision"* using *conditional, future perfect, and subjunctive*
+- *"childhood memories"* using *imperfect and preterite*
+
 ## API
 
 | Method | Path | Description |
@@ -99,21 +139,3 @@ Notes:
 }
 ```
 
-## Answer matching
-
-Answers are normalised before comparison:
-- Lowercase
-- Accent marks stripped (so "toque" matches "toqué")
-- Leading/trailing whitespace collapsed
-
-This means learners are not penalised for missing accent marks.
-
-## Structure
-
-```
-main.go        — service: handlers + embedded HTML templates
-sentences.json — sample story you can copy into ./stories
-stories/       — place your story JSON files here (not tracked by default)
-go.mod
-README.md
-```
