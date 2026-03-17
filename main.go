@@ -175,6 +175,10 @@ func tenseBadgeClass(tense string) string {
 	switch tense {
 	case "present":
 		return "badge-pres"
+	case "present_perfect":
+		return "badge-pres-perf"
+	case "past_perfect":
+		return "badge-past-perf"
 	case "preterite":
 		return "badge-pret"
 	case "imperfect":
@@ -187,8 +191,12 @@ func tenseBadgeClass(tense string) string {
 		return "badge-impr"
 	case "conditional":
 		return "badge-cond"
+	case "conditional_perfect":
+		return "badge-cond-perf"
 	case "future":
 		return "badge-fut"
+	case "future_perfect":
+		return "badge-fut-perf"
 	default:
 		return "badge-none"
 	}
@@ -198,6 +206,10 @@ func tenseBadgeLabel(tense string) string {
 	switch tense {
 	case "present":
 		return "presente"
+	case "present_perfect":
+		return "perfecto presente"
+	case "past_perfect":
+		return "perfecto pasado"
 	case "preterite":
 		return "pretérito"
 	case "imperfect":
@@ -210,10 +222,14 @@ func tenseBadgeLabel(tense string) string {
 		return "imperativo"
 	case "conditional":
 		return "condicional"
+	case "conditional_perfect":
+		return "perfecto condicional"
 	case "future":
 		return "futuro"
+	case "future_perfect":
+		return "perfecto futuro"
 	default:
-		return "?"
+		return "?" + tense + "?"
 	}
 }
 
@@ -227,18 +243,26 @@ func tenseLegendDesc(tense string) string {
 		return "ongoing / habitual / descriptive"
 	case "present":
 		return "present tense"
+	case "present_perfect":
+		return "perfect present tense; he -ado/ido"
+	case "past_perfect":
+		return "past perfect tense; había -ado/ido"
 	case "imperative":
 		return "command action"
 	case "conditional":
 		return "conditional"
+	case "conditional_perfect":
+		return "perfect conditional; habría -ado/ido"
 	case "future":
 		return "future tense"
+	case "future_perfect":
+		return "perfect future tense; habré -ado/ido"
 	case "subjunctive_present":
 		return "desires, wishes"
 	case "subjunctive_imperfect":
 		return "past desires, wishes"
 	default:
-		return tense
+		return "unkown"
 	}
 }
 
