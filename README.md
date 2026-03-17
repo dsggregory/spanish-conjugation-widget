@@ -37,6 +37,7 @@ Security note: only files inside `./stories` with the `.json` extension are acce
 Each story JSON is an array of sentence objects. For each sentence:
 
 - `id` (number) — unique identifier (can be 0-based or any integers, must be stable).
+- `translation` (string) — full-sentence translation in English; shown as a tooltip when you hover the sentence label ("Sentence N").
 - `parts` (array of strings) — textual fragments around blanks; its length must be
   exactly `len(blanks) + 1`.
 - `blanks` (array) — each blank has:
@@ -52,6 +53,7 @@ Example (single sentence):
 [
   {
     "id": 0,
+    "translation": "When I was little, my grandfather used to play the guitar.",
     "parts": ["Cuando ", " pequeño, mi abuelo ", " tocar la guitarra."],
     "blanks": [
       {"infinitive": "ser", "answer": "era", "tense": "imperfect", "hint": "ser (yo, imperf.)"},
@@ -74,6 +76,7 @@ Here's a prompt you could paste into a new AI chat. Take the resulting JSON stor
 > [
 >   {
 >     "id": 0,
+>     "translation": "Sentence translation in english.",
 >     "parts": ["Text before first blank ", " text between blanks ", " text after last blank."],
 >     "blanks": [
 >       {

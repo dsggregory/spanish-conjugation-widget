@@ -1,6 +1,7 @@
 [
   {
     "id": 0,
+    "translation": "It was Saturday and I was very hungry when I went to the market.",
     "parts": ["Era sábado y yo ", " mucho hambre cuando ", " al mercado."],
     "blanks": [
       {
@@ -23,6 +24,7 @@
   },
   {
     "id": 1,
+    "translation": "The stalls were full of fruit and people were walking everywhere.",
     "parts": ["Los puestos ", " llenos de frutas y la gente ", " por todas partes."],
     "blanks": [
       {
@@ -45,6 +47,7 @@
   },
   {
     "id": 2,
+    "translation": "Suddenly, a lady called out to me and offered me a mango sample.",
     "parts": ["De repente, una señora me ", " y me ", " una muestra de mango."],
     "blanks": [
       {
@@ -67,6 +70,7 @@
   },
   {
     "id": 3,
+    "translation": "The mango was sweet, so I bought two kilos.",
     "parts": ["El mango ", " dulce, así que ", " dos kilos."],
     "blanks": [
       {
@@ -89,6 +93,7 @@
   },
   {
     "id": 4,
+    "translation": "While I was walking home, I thought that the market always brightens my day.",
     "parts": ["Mientras yo ", " a casa, ", " que el mercado siempre me alegra el día."],
     "blanks": [
       {

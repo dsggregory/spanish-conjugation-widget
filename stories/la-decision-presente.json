@@ -1,6 +1,7 @@
 [
   {
     "id": 0,
+    "translation": "I have been working at this company for three years, but lately I have felt that something has to change.",
     "parts": ["Hace tres años que ", " en esta empresa, pero últimamente ", " que algo ", " que cambiar."],
     "blanks": [
       {
@@ -30,6 +31,7 @@
   },
   {
     "id": 1,
+    "translation": "My colleagues have told me that they have never had such a stable job, and that I would be wise to stay.",
     "parts": ["Mis colegas me ", " que nunca ", " un trabajo tan estable, y que ", " bien en quedarme."],
     "blanks": [
       {
@@ -59,6 +61,7 @@
   },
   {
     "id": 2,
+    "translation": "However, if I were braver, I would have already founded my own company.",
     "parts": ["Sin embargo, si yo ", " más valiente, ya ", " mi propia empresa."],
     "blanks": [
       {
@@ -81,6 +84,7 @@
   },
   {
     "id": 3,
+    "translation": "By the time I turn forty, I will have saved enough money to try it.",
     "parts": ["Para cuando ", " cuarenta años, ", " suficiente dinero para intentarlo."],
     "blanks": [
       {
@@ -103,6 +107,7 @@
   },
   {
     "id": 4,
+    "translation": "Next year, I will talk to a financial advisor and draw up a concrete plan.",
     "parts": ["El año que viene, ", " con un asesor financiero y ", " un plan concreto."],
     "blanks": [
       {
@@ -125,6 +130,7 @@
   },
   {
     "id": 5,
+    "translation": "When that moment comes, I will know that I made the right decision because I have always believed in my dreams.",
     "parts": ["Cuando llegue ese momento, ", " que tomé la decisión correcta porque siempre ", " en mis sueños."],
     "blanks": [
       {

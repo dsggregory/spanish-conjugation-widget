@@ -1,6 +1,7 @@
 [
   {
     "id": 0,
+    "translation": "When I was little, my grandfather used to play the guitar every night.",
     "parts": ["Cuando ", " pequeño, mi abuelo ", " tocar la guitarra todas las noches."],
     "blanks": [
       {"infinitive": "ser", "answer": "era", "tense": "imperfect", "hint": "ser (yo, imperf.)"},
@@ -13,6 +14,7 @@
   },
   {
     "id": 1,
+    "translation": "One day, he showed me the guitar and told me that someday it would be mine.",
     "parts": ["Un día, él me ", " la guitarra y me ", " que algún día sería mía."],
     "blanks": [
       {"infinitive": "mostrar", "answer": "mostró", "tense": "preterite", "hint": "mostrar (él, pret.)"},
@@ -25,6 +27,7 @@
   },
   {
     "id": 2,
+    "translation": "The guitar was old and had a small crack in the body.",
     "parts": ["La guitarra ", " vieja y ", " una grieta pequeña en el cuerpo."],
     "blanks": [
       {"infinitive": "ser", "answer": "era", "tense": "imperfect", "hint": "ser (ella, imperf.)"},
@@ -37,6 +40,7 @@
   },
   {
     "id": 3,
+    "translation": "My grandfather told me that he bought it when he was twenty years old.",
     "parts": ["Mi abuelo me ", " que la ", " cuando tenía veinte años."],
     "blanks": [
       {"infinitive": "contar", "answer": "contó", "tense": "preterite", "hint": "contar (él, pret.)"},
@@ -49,6 +53,7 @@
   },
   {
     "id": 4,
+    "translation": "I was nervous, but I played the first notes carefully.",
     "parts": ["Yo ", " nervioso, pero ", " las primeras notas con cuidado."],
     "blanks": [
       {"infinitive": "estar", "answer": "estaba", "tense": "imperfect", "hint": "estar (yo, imperf.)"},
@@ -61,6 +66,7 @@
   },
   {
     "id": 5,
+    "translation": "My grandfather listened to me while I practiced and didn't say anything.",
     "parts": ["Mi abuelo me ", " mientras yo ", " y no dijo nada."],
     "blanks": [
       {"infinitive": "escuchar", "answer": "escuchaba", "tense": "imperfect", "hint": "escuchar (él, imperf.)"},
@@ -73,6 +79,7 @@
   },
   {
     "id": 6,
+    "translation": "Suddenly, he stood up and gave me a big hug.",
     "parts": ["De repente, él ", " y me ", " un abrazo fuerte."],
     "blanks": [
       {"infinitive": "levantarse", "answer": "se levantó", "tense": "preterite", "hint": "levantarse (él, pret.)"},
@@ -85,6 +92,7 @@
   },
   {
     "id": 7,
+    "translation": "I knew that music united us in a special way.",
     "parts": ["Yo sabía que la música nos ", " de manera especial."],
     "blanks": [
       {"infinitive": "unir", "answer": "unía", "tense": "imperfect", "hint": "unir (ella, imperf.)"}
@@ -95,6 +103,7 @@
   },
   {
     "id": 8,
+    "translation": "That night, we played until very late and then fell asleep together.",
     "parts": ["Esa noche, ", " hasta muy tarde y luego ", " juntos."],
     "blanks": [
       {"infinitive": "tocar", "answer": "tocamos", "tense": "preterite", "hint": "tocar (nosotros, pret.)"},
@@ -107,6 +116,7 @@
   },
   {
     "id": 9,
+    "translation": "Today, when I play that guitar, I always think of him.",
     "parts": ["Hoy, cuando ", " esa guitarra, siempre pienso en él."],
     "blanks": [
       {"infinitive": "tocar", "answer": "toco", "tense": "present", "hint": "tocar (yo, presente)"}

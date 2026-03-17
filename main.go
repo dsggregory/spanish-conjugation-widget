@@ -26,10 +26,11 @@ type Blank struct {
 }
 
 type Sentence struct {
-	ID        int      `json:"id"`
-	Parts     []string `json:"parts"` // len(Parts) == len(Blanks)+1
-	Blanks    []Blank  `json:"blanks"`
-	Rationale []string `json:"rationale"` // one entry per blank
+	ID          int      `json:"id"`
+	Translation string   `json:"translation"` // translation of the full sentence in english
+	Parts       []string `json:"parts"`       // len(Parts) == len(Blanks)+1
+	Blanks      []Blank  `json:"blanks"`
+	Rationale   []string `json:"rationale"` // one entry per blank
 }
 
 // CheckRequest is the JSON body sent by the browser on "Check answers".

@@ -1,6 +1,7 @@
 [
   {
     "id": 0,
+    "translation": "When I was little, I always hoped that someday I would go to Spain.",
     "parts": ["Cuando ", " pequeño, siempre ", " que algún día ", " a España."],
     "blanks": [
       {
@@ -30,6 +31,7 @@
   },
   {
     "id": 1,
+    "translation": "At last, my teacher told me that I had gotten a scholarship to study in Seville.",
     "parts": ["Por fin, mi profesora me ", " que ", " una beca para estudiar en Sevilla."],
     "blanks": [
       {
@@ -52,6 +54,7 @@
   },
   {
     "id": 2,
+    "translation": "My parents asked that I be very careful during the trip.",
     "parts": ["Mis padres ", " que yo ", " mucho cuidado durante el viaje."],
     "blanks": [
       {
@@ -74,6 +77,7 @@
   },
   {
     "id": 3,
+    "translation": "When the plane landed in Seville, the sun was shining and the city was beautiful.",
     "parts": ["Cuando el avión ", " en Sevilla, el sol ", " y la ciudad ", " preciosa."],
     "blanks": [
       {
@@ -103,6 +107,7 @@
   },
   {
     "id": 4,
+    "translation": "I didn't imagine that flamenco would move me so much until I saw my first performance.",
     "parts": ["No ", " que el flamenco me ", " tanto hasta que ", " mi primera actuación."],
     "blanks": [
       {

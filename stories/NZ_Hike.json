@@ -1,6 +1,7 @@
 [
   {
     "id": 0,
+    "translation": "The trail was steep and the wind was blowing hard when I climbed the first hill.",
     "parts": ["El sendero ", " empinado y el viento ", " fuerte cuando ", " la primera colina."],
     "blanks": [
       {
@@ -30,6 +31,7 @@
   },
   {
     "id": 1,
+    "translation": "From the summit, I saw a blue lake that shone among the mountains like a mirror.",
     "parts": ["Desde la cima, ", " un lago azul que ", " entre las montañas como un espejo."],
     "blanks": [
       {
@@ -52,6 +54,7 @@
   },
   {
     "id": 2,
+    "translation": "Suddenly, some sheep crossed the path and I had to wait several minutes.",
     "parts": ["De repente, unas ovejas ", " el camino y yo ", " que esperar varios minutos."],
     "blanks": [
       {
@@ -74,6 +77,7 @@
   },
   {
     "id": 3,
+    "translation": "While I was walking through the valley, I listened to the sound of the river and smelled the scent of pine.",
     "parts": ["Mientras ", " por el valle, ", " el sonido del río y ", " el olor a pino."],
     "blanks": [
       {
@@ -103,6 +107,7 @@
   },
   {
     "id": 4,
+    "translation": "At the end of the day, I arrived at the shelter exhausted, took off my boots, and fell asleep in seconds.",
     "parts": ["Al final del día, ", " al refugio exhausto, me ", " las botas y ", " dormido en segundos."],
     "blanks": [
       {

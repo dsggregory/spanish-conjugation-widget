@@ -1,6 +1,7 @@
 [
   {
     "id": 0,
+    "translation": "This weekend I'm going to the mountains with my friends — something I've been eagerly looking forward to for weeks.",
     "parts": ["Este fin de semana ", " con mis amigos a las montañas — algo que ", " con muchas ganas desde hace semanas."],
     "blanks": [
       {
@@ -23,6 +24,7 @@
   },
   {
     "id": 1,
+    "translation": "On Saturday morning, we'll wake up at six and head for the trail before dawn.",
     "parts": ["El sábado por la mañana, nos ", " a las seis y ", " hacia el sendero antes del amanecer."],
     "blanks": [
       {
@@ -45,6 +47,7 @@
   },
   {
     "id": 2,
+    "translation": "If the weather is good, the view from the summit will be spectacular.",
     "parts": ["Si el tiempo ", " bueno, la vista desde la cima ", " espectacular."],
     "blanks": [
       {
@@ -67,6 +70,7 @@
   },
   {
     "id": 3,
+    "translation": "No doubt, my friends will want to stop to rest, but I will prefer to keep going to the summit.",
     "parts": ["Sin duda, mis amigos ", " parar a descansar, pero yo ", " seguir hasta la cumbre."],
     "blanks": [
       {
@@ -89,6 +93,7 @@
   },
   {
     "id": 4,
+    "translation": "If we had more time, we'd stay two whole days and make a campfire at night.",
     "parts": ["Si ", " más tiempo, ", " dos días enteros y ", " una hoguera por la noche."],
     "blanks": [
       {
@@ -118,6 +123,7 @@
   },
   {
     "id": 5,
+    "translation": "For now, I just know that this weekend will be exactly what I need — fresh air, good company, and mountains.",
     "parts": ["Por ahora, solo sé que este fin de semana ", " exactamente lo que ", " — aire fresco, buena compañía y montañas."],
     "blanks": [
       {

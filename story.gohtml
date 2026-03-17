@@ -16,7 +16,7 @@
 {{ range .Sentences }}
   {{ $s := . }}
   <div class="card" id="card-{{ $s.ID }}">
-    <div class="card-num">Sentence {{ add $s.ID 1 }}</div>
+    <div class="card-num" {{ if $s.Translation }}title="{{ $s.Translation }}"{{ end }}>Sentence {{ add $s.ID 1 }}</div>
     <div class="sentence">
       {{ $sid := $s.ID }}
       {{ $parts := $s.Parts }}
