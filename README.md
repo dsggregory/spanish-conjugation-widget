@@ -1,7 +1,6 @@
-# La guitarra de mi abuelo — Spanish Verb Exercise
+# Spanish Verb Exerciser
 
-A self-contained Go web service. No external framework, one optional dependency
-(`golang.org/x/text`) for accent-insensitive answer matching.
+A story-based Spanish verb conjugation exercise frontend to AI-generated JSON stories.
 
 ## Quick start
 
@@ -68,8 +67,6 @@ Example (single sentence):
 
 ## Ask AI for a new story
 Here's a prompt you could paste into a new AI chat. Take the resulting JSON story and save into the `./stories` directory.
-
----
 
 > Write a Spanish verb conjugation exercise as a JSON file using this exact structure:
 >
