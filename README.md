@@ -32,6 +32,9 @@ story is loaded on first run; selecting a file loads and renders it.
 
 Security note: only files inside `./stories` with the `.json` extension are accepted.
 
+### Load a dynamic story / Custom story
+Ask AI to generate a new story for you. The app will load the JSON story and render it.
+Click `Add custom story` button that asks for a file to load, or JSON text to paste. Pressing `Ask AI` from this screen shows a prompt to ask AI for a new story that you can then paste into the JSON box. Saving the story into a local file allows you to quickly load it again at any time.
 ## Story JSON format
 
 Each story JSON is an object with two top-level fields:

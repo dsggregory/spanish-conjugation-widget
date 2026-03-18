@@ -117,7 +117,7 @@
         </span>
     </div>
 
-    <div style="margin-bottom: 1rem; font-size: 0.9rem; color: #444; display: flex; gap: 10px; align-items: center;">
+    <div style="margin-bottom: 1rem; font-size: 0.9rem; color: #444; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
         <label for="story-file" style="min-width: 110px;">Story file:</label>
         <select id="story-file" name="file"
                 hx-get="/load-story" hx-trigger="change" hx-target="#story" hx-swap="innerHTML">
@@ -126,6 +126,7 @@
             <option value="{{ . }}">{{ . }}</option>
             {{- end }}
         </select>
+        <button type="button" id="btn-add-custom" style="cursor:pointer; font-family: inherit; font-size: 0.82rem; background:#fff; border:1px solid #ccc; border-radius:8px; padding:6px 10px;" onclick="openUploadModal()">Add custom story…</button>
     </div>
 
     <!-- Legend is rendered dynamically with each story -->
@@ -140,6 +141,101 @@
         <button onclick="resetAll()">Reset</button>
     </div>
     <div id="score"></div>
+</div>
+
+<!-- Upload/Paste custom story modal -->
+<div id="upload-backdrop" style="display:none; position: fixed; inset: 0; background: rgba(0,0,0,0.35); z-index: 1000;" onclick="closeUploadModal(event)"></div>
+<div id="upload-modal" style="display:none; position: fixed; left: 50%; top: 10%; transform: translateX(-50%); width: min(720px, 92vw); background:#fff; border:1px solid #ddd; border-radius:12px; padding:16px; z-index:1001; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+  <div style="display:flex; justify-content: space-between; align-items:center; margin-bottom:10px;">
+    <div style="font-weight:600; color:#333;">Add custom story</div>
+    <div style="display:flex; gap:8px;">
+      <button type="button" onclick="togglePromptHelp()" style="cursor:pointer; background:#fff; border:1px solid #ccc; border-radius:8px; padding:4px 10px;">Ask AI</button>
+      <button type="button" onclick="closeUploadModal()" style="cursor:pointer; background:#fff; border:1px solid #ccc; border-radius:8px; padding:4px 10px;">Close</button>
+    </div>
+  </div>
+  <div style="font-size:0.9rem; color:#555; margin-bottom: 10px;">Upload a JSON file or paste JSON text using the documented story format.</div>
+  <!-- Prompt help panel (hidden by default) -->
+  <div id="prompt-help" style="display:none; margin-bottom:12px;">
+    <div class="card" style="margin: 6px 0; background:#fffdf7; border-color:#f1e6c8;">
+      <div style="display:flex; justify-content: space-between; align-items:center; gap:8px; margin-bottom:6px;">
+        <div style="font-weight:600; color:#8a6d1c;">AI prompt example</div>
+        <div style="display:flex; gap:8px;">
+          <button type="button" onclick="copyPromptToClipboard()" style="cursor:pointer; background:#fff; border:1px solid #ccc; border-radius:8px; padding:4px 10px; font-size:0.8rem;">Copy prompt</button>
+          <button type="button" onclick="togglePromptHelp()" style="cursor:pointer; background:#fff; border:1px solid #ccc; border-radius:8px; padding:4px 10px; font-size:0.8rem;">Hide</button>
+        </div>
+      </div>
+      <textarea id="prompt-text" rows="16" readonly style="width:100%; resize:vertical; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8rem; color:#333; background:#fff; border:1px solid #e6e0cc; border-radius:8px; padding:10px;">
+Write a Spanish verb conjugation exercise as a JSON file using this exact structure:
+
+{
+  "overview": {
+    "title": "Short title for the story",
+    "topic": "What this story is about",
+    "tenses": ["list", "of", "tenses", "used"],
+    "translation": "Optional one-line translation or summary",
+    "notes": [
+      {"heading": "Tip or gotcha heading", "body": "Pedagogical note body text."}
+    ]
+  },
+  "sentences": [
+    {
+      "id": 0,
+      "translation": "Sentence translation in english.",
+      "parts": ["Text before first blank ", " text between blanks ", " text after last blank."],
+      "blanks": [
+        {
+          "infinitive": "verb in infinitive form",
+          "answer": "correct conjugation",
+          "tense": "tense identifier string",
+          "hint": "verb (person, tense abbreviation)"
+        }
+      ],
+      "rationale": [
+        "conjugation → tense name: explanation of why this tense is used here."
+      ]
+    }
+  ]
+}
+
+Rules:
+- overview.notes contains tips, gotchas, and pedagogical notes for the story
+- parts always has exactly one more element than blanks — they interleave: part[0], blank[0], part[1], blank[1], etc.
+- tense should be one of: present, preterite, imperfect, present_perfect, past_perfect, future, future_perfect, conditional, conditional_perfect, subjunctive_present, subjunctive_imperfect
+- rationale has one entry per blank, explaining the grammar rule that determines the tense choice
+- Answer matching should be lenient — accept answers with or without accent marks
+
+Write a short story of 5–6 sentences on the topic of [YOUR TOPIC HERE] using the tenses [LIST TENSES HERE]. Make the tense choices pedagogically deliberate — pair contrasting tenses within sentences where possible to highlight the distinction.
+      </textarea>
+      <div style="font-size:0.82rem; color:#666; margin-top:6px;">
+        Tip: Click "Copy prompt" and paste it into your AI chat, then replace the topic and tenses at the bottom. For example:
+          <ul style="margin-left: 1.25em; padding-left: 1.1em; list-style-position: outside;">
+          <li>"a trip to a foreign city" using preterite, imperfect, and present perfect</li>
+          <li>"a career decision" using conditional, future perfect, and subjunctive</li>
+          <li>"childhood memories" using imperfect and preterite</li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex; gap:16px; flex-wrap: wrap;">
+    <form id="form-upload-file" hx-post="/upload-story" hx-target="#story" hx-swap="innerHTML" enctype="multipart/form-data" style="flex:1 1 260px; min-width:260px; background:#faf9f6; border:1px dashed #cfcab8; border-radius:10px; padding:12px;">
+      <div style="font-weight:600; margin-bottom:6px;">Upload file</div>
+      <input type="file" name="file" accept=".json,application/json" style="margin-bottom:8px;">
+      <div>
+        <button type="submit" style="cursor:pointer; font-family: inherit; font-size: 0.82rem; background:#fff; border:1px solid #ccc; border-radius:8px; padding:6px 10px;">Load</button>
+      </div>
+    </form>
+    <form id="form-paste-json" hx-post="/upload-story" hx-target="#story" hx-swap="innerHTML" style="flex:1 1 360px; min-width:300px; background:#faf9f6; border:1px dashed #cfcab8; border-radius:10px; padding:12px;">
+      <div style="font-weight:600; margin-bottom:6px;">Paste JSON</div>
+      <textarea name="json" rows="10" placeholder='{
+  "overview": { ... },
+  "sentences": [ ... ]
+}' style="width:100%; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.82rem; padding:8px; border:1px solid #ddd; border-radius:8px; margin-bottom:8px;"></textarea>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button type="submit" style="cursor:pointer; font-family: inherit; font-size: 0.82rem; background:#fff; border:1px solid #ccc; border-radius:8px; padding:6px 10px;">Load</button>
+        <span id="upload-error" style="color:#a32d2d; font-size:0.82rem;"></span>
+      </div>
+    </form>
+  </div>
 </div>
 
 <script>
@@ -160,6 +256,8 @@
                 if (typeof applyBadgeVisibility === 'function') {
                     applyBadgeVisibility();
                 }
+                // Close upload modal (if open) after successful story swap
+                closeUploadModal();
             }).catch(() => {
                 // Even if metadata fails, try to wire inputs to avoid breaking UX
                 wireBlankInputs();
@@ -167,7 +265,18 @@
                 if (typeof applyBadgeVisibility === 'function') {
                     applyBadgeVisibility();
                 }
+                closeUploadModal();
             });
+        }
+    });
+
+    // Handle HTMX response errors by showing a message in the modal if present
+    document.body.addEventListener('htmx:responseError', function(evt) {
+        const errEl = document.getElementById('upload-error');
+        if (errEl) {
+            errEl.textContent = 'Failed to load story: ' + (evt.detail.xhr && evt.detail.xhr.responseText ? evt.detail.xhr.responseText : 'server error');
+        } else {
+            alert('Failed to load story');
         }
     });
 
@@ -186,6 +295,51 @@
         validateOnBlur = validateToggler.checked;
         try { localStorage.setItem('validateOnBlur', String(validateOnBlur)); } catch (_) {}
     });
+
+    // Modal helpers
+    function openUploadModal() {
+        document.getElementById('upload-backdrop').style.display = 'block';
+        document.getElementById('upload-modal').style.display = 'block';
+        // Clear prior error
+        const err = document.getElementById('upload-error');
+        if (err) err.textContent = '';
+    }
+    function closeUploadModal(e) {
+        // If backdrop clicked, ensure click is outside modal
+        if (e && e.target && e.target.id && e.target.id !== 'upload-backdrop') {
+            return;
+        }
+        document.getElementById('upload-backdrop').style.display = 'none';
+        document.getElementById('upload-modal').style.display = 'none';
+    }
+    function togglePromptHelp() {
+        const panel = document.getElementById('prompt-help');
+        if (!panel) return;
+        const show = panel.style.display === 'none' || panel.style.display === '';
+        panel.style.display = show ? 'block' : 'none';
+    }
+    async function copyPromptToClipboard() {
+        const ta = document.getElementById('prompt-text');
+        if (!ta) return;
+        const text = ta.value || '';
+        try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                await navigator.clipboard.writeText(text);
+            } else {
+                // Fallback
+                ta.select();
+                document.execCommand('copy');
+                ta.setSelectionRange(0, 0); // move caret
+            }
+            alert('Prompt copied to clipboard.');
+        } catch (e) {
+            alert('Failed to copy. You can select the text and copy manually.');
+        }
+    }
+    window.openUploadModal = openUploadModal;
+    window.closeUploadModal = closeUploadModal;
+    window.togglePromptHelp = togglePromptHelp;
+    window.copyPromptToClipboard = copyPromptToClipboard;
 
     function wireBlankInputs() {
         document.querySelectorAll('.blank-group input').forEach(inp => {

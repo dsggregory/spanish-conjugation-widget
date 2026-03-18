@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"html/template"
+	"io"
 	"log"
 	"net/http"
 	"os"
@@ -71,11 +72,7 @@ type CheckResult struct {
 
 var currentStory Story
 
-func loadSentencesFromFile(path string) error {
-	b, err := os.ReadFile(path)
-	if err != nil {
-		return err
-	}
+func loadStoryFromBytes(b []byte) error {
 	// First try to parse as the current Story container format (with structured Overview).
 	var obj Story
 	if err := json.Unmarshal(b, &obj); err == nil {
@@ -107,6 +104,14 @@ func loadSentencesFromFile(path string) error {
 	}
 	currentStory = Story{Overview: nil, Sentences: data}
 	return nil
+}
+
+func loadSentencesFromFile(path string) error {
+	b, err := os.ReadFile(path)
+	if err != nil {
+		return err
+	}
+	return loadStoryFromBytes(b)
 }
 
 // listStoryFiles returns base filenames of JSON stories under ./stories.
@@ -374,6 +379,77 @@ func handleStory(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// handleUploadStory accepts a custom story uploaded by the user either as a JSON file
+// (multipart form field "file") or as pasted JSON text (form field "json"). On success,
+// it loads the story into memory and returns the rendered story partial HTML.
+func handleUploadStory(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	// Limit request body to 2MB total to avoid abuse.
+	r.Body = http.MaxBytesReader(w, r.Body, 2<<20)
+
+	var data []byte
+	// Try multipart file first.
+	ct := r.Header.Get("Content-Type")
+	if strings.HasPrefix(ct, "multipart/form-data") {
+		if err := r.ParseMultipartForm(2 << 20); err != nil { // 2MB
+			http.Error(w, "failed to parse upload: "+err.Error(), http.StatusBadRequest)
+			return
+		}
+		f, _, err := r.FormFile("file")
+		if err == nil && f != nil {
+			defer f.Close()
+			b, err := io.ReadAll(f)
+			if err != nil {
+				http.Error(w, "failed to read file: "+err.Error(), http.StatusBadRequest)
+				return
+			}
+			data = b
+		}
+		// If no file provided, also check for "json" field in the same request
+		if len(data) == 0 {
+			txt := r.FormValue("json")
+			if strings.TrimSpace(txt) == "" {
+				http.Error(w, "no story data provided", http.StatusBadRequest)
+				return
+			}
+			data = []byte(txt)
+		}
+	} else {
+		// Standard form post (application/x-www-form-urlencoded or others): expect "json" field
+		if err := r.ParseForm(); err != nil {
+			http.Error(w, "bad request: "+err.Error(), http.StatusBadRequest)
+			return
+		}
+		txt := r.FormValue("json")
+		if strings.TrimSpace(txt) == "" {
+			http.Error(w, "missing json field", http.StatusBadRequest)
+			return
+		}
+		data = []byte(txt)
+	}
+
+	if err := loadStoryFromBytes(data); err != nil {
+		http.Error(w, "invalid story JSON: "+err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	// Render the story partial with the newly loaded sentences.
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	ov := currentStory.Overview
+	if isOverviewEmpty(ov) {
+		ov = nil
+	}
+	view := StoryViewData{Overview: ov, Sentences: currentStory.Sentences, Tenses: collectTenses(currentStory.Sentences)}
+	if err := tmplStory.ExecuteTemplate(w, "story.gohtml", view); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+}
+
 // handleLoadStory loads a selected story JSON from ./stories and returns the rendered HTML.
 func handleLoadStory(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet && r.Method != http.MethodPost {
@@ -452,6 +528,7 @@ func main() {
 	mux.HandleFunc("/api/check", handleCheck)
 	mux.HandleFunc("/sentences", handleStory)
 	mux.HandleFunc("/load-story", handleLoadStory)
+	mux.HandleFunc("/upload-story", handleUploadStory)
 
 	// Do not auto-load a story on startup; app starts with none loaded.
 
