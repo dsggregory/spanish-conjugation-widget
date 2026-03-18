@@ -1,4 +1,34 @@
-[
+{
+  "overview": {
+    "title": "El viaje a Sevilla",
+    "topic": "Winning a scholarship and traveling to Seville for the first time",
+    "tenses": [
+      "preterite",
+      "imperfect",
+      "past_perfect",
+      "subjunctive_imperfect"
+    ],
+    "translation": "The trip to Seville",
+    "notes": [
+      {
+        "heading": "Sequence of tenses: past main verb → imperfect subjunctive",
+        "body": "When the main clause verb is in the preterite or imperfect and it triggers the subjunctive (via esperar que, pedir que, querer que, etc.), the subordinate clause must use the imperfect subjunctive — not the present subjunctive. Using present subjunctive after a past main verb is a common learner error that sounds unnatural to native speakers. The rule: past tense → imperfect subjunctive; present/future tense → present subjunctive."
+      },
+      {
+        "heading": "Pluperfect (pluscuamperfecto) for past-before-past",
+        "body": "Había + past participle expresses an action completed before another past action. In 'me dijo que había conseguido una beca', the winning happened before the telling. The pluperfect is the Spanish equivalent of English 'had done'. It appears frequently alongside preterite narration to establish that one event preceded another."
+      },
+      {
+        "heading": "Negative imaginar que + subjunctive vs. affirmative + indicative",
+        "body": "'Imaginaba que...' (affirmative) takes the indicative because you are asserting something as fact in your mind. 'No imaginaba que...' (negative) introduces uncertainty — you are saying the fact was outside your mental frame — which triggers the subjunctive. The negation of a verb of thinking or believing typically shifts the subordinate clause from indicative to subjunctive."
+      },
+      {
+        "heading": "Cuando + preterite for the moment of arrival",
+        "body": "Cuando followed by a preterite describes the specific moment something happened (when the plane landed). Cuando followed by an imperfect describes the general time period when something was true (when I was young). This distinction — cuando + preterite for a moment, cuando + imperfect for a period — is a reliable rule for choosing between the two tenses after temporal conjunctions."
+      }
+    ]
+  },
+  "sentences": [
   {
     "id": 0,
     "translation": "When I was little, I always hoped that someday I would go to Spain.",
@@ -136,3 +166,4 @@
     ]
   }
 ]
+}

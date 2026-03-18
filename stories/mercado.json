@@ -1,4 +1,32 @@
-[
+{
+  "overview": {
+  "title": "El mercado",
+  "topic": "A Saturday morning trip to the market ending with mango and a walk home",
+  "tenses": [
+    "preterite",
+    "imperfect"
+  ],
+  "translation": "The market",
+  "notes": [
+    {
+      "heading": "Pure imperfect scene-setting before any action fires",
+      "body": "The first two sentences are entirely imperfect — stalls were full, people were walking. No preterite appears until sentence 3. This mirrors how Spanish narration works: establish the scene in the imperfect first, then introduce events in the preterite. Jumping straight to preterite without the imperfect backdrop produces narration that feels abrupt and unnatural."
+    },
+    {
+      "heading": "Era vs. estuvo for describing food quality",
+      "body": "'El mango era dulce' uses ser because sweetness is an inherent characteristic of the mango, not a temporary state. Using 'estuvo dulce' would imply the mango was sweet on that occasion but is not by nature — a distinction native speakers feel strongly. In food contexts, ser is standard for intrinsic qualities (flavor, texture) and estar for temporary condition (the soup is hot right now)."
+    },
+    {
+      "heading": "Mientras + imperfect as a background frame",
+      "body": "'Mientras volvía a casa' sets an ongoing action as a time frame inside which something else happens. The mientras clause always takes the imperfect; the event occurring within it typically takes the preterite. This frame (mientras + imperfect → preterite) is one of the most reliable structural patterns in Spanish narration."
+    },
+    {
+      "heading": "Tuve que vs. tenía que",
+      "body": "Tener que + infinitive in the preterite (tuve que esperar) means a specific obligation arose and was fulfilled at that moment. In the imperfect (tenía que esperar) it means there was an ongoing or habitual obligation, without implying it was actually carried out. The preterite form often translates as 'had to and did'; the imperfect as 'was supposed to' or 'kept having to'."
+    }
+  ]
+},
+  "sentences": [
   {
     "id": 0,
     "translation": "It was Saturday and I was very hungry when I went to the market.",
@@ -115,3 +143,4 @@
     ]
   }
 ]
+}

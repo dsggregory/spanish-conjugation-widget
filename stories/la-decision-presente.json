@@ -1,4 +1,43 @@
-[
+{
+  "overview": {
+    "title": "La decisión",
+    "topic": "Weighing whether to leave a stable job and start a company",
+    "tenses": [
+      "present",
+      "present_perfect",
+      "past_perfect",
+      "future",
+      "future_perfect",
+      "conditional",
+      "conditional_perfect",
+      "subjunctive_imperfect",
+      "subjunctive_present"
+    ],
+    "translation": "The decision",
+    "notes": [
+      {
+        "heading": "Hace + time + que + present tense for ongoing duration",
+        "body": "'Hace tres años que trabajo aquí' uses the present tense — not the present perfect — to express an action that started in the past and continues now. English uses 'I have been working here for three years' (perfect), but Spanish uses the present. This is a direct false-friend trap. The construction is: hace + time expression + que + present indicative."
+      },
+      {
+        "heading": "Present perfect for recent or life-spanning experience",
+        "body": "The present perfect (he + participio) is used when the past action remains relevant to or connected with the present. Key triggers: 'nunca', 'alguna vez', 'siempre', 'hoy', 'este año', 'últimamente', and superlatives like 'lo más intenso que he vivido'. In Peninsular Spanish this is a strong rule; in Latin American Spanish the preterite often replaces it, so both registers are worth knowing."
+      },
+      {
+        "heading": "Contrary-to-fact si-clause: imperfect subjunctive + conditional perfect",
+        "body": "'Si fuera más valiente, habría fundado mi empresa' is the canonical contrary-to-fact conditional structure. Si + imperfect subjunctive states the hypothetical condition (which is false); conditional perfect states what would have already happened as a result. This differs from the open conditional (si + present indicative + future) where the condition is genuinely possible. The two structures must not be mixed."
+      },
+      {
+        "heading": "Para cuando + subjunctive + future perfect",
+        "body": "'Para cuando cumpla cuarenta años, habré ahorrado suficiente' combines two rules. First: para cuando referring to a future event always takes the present subjunctive — never the future indicative. Second: the result clause uses the future perfect (habré + participio) to show the saving will be completed before the milestone. Both parts of the construction are required; using the future indicative after para cuando is a clear grammatical error."
+      },
+      {
+        "heading": "Conditional for hypothetical present outcomes",
+        "body": "The conditional (haría, quedaríamos) expresses what would happen under hypothetical circumstances. It is the consequence half of a si-clause structure, but can also stand alone to soften assertions or express politeness. In this story it contrasts with the future tense: the future (hablaré) expresses real planned intention; the conditional (haríamos) expresses what would happen in an unreal scenario."
+      }
+    ]
+  },
+  "sentences": [
   {
     "id": 0,
     "translation": "I have been working at this company for three years, but lately I have felt that something has to change.",
@@ -152,3 +191,4 @@
     ]
   }
 ]
+}

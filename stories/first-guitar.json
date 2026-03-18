@@ -1,4 +1,33 @@
-[
+{
+    "overview": {
+      "title": "La guitarra de mi abuelo",
+      "topic": "A grandson learning guitar from his grandfather",
+      "tenses": [
+        "preterite",
+        "imperfect",
+        "present"
+      ],
+      "translation": "My grandfather's guitar",
+      "notes": [
+        {
+          "heading": "Imperfect for habitual past actions with soler",
+          "body": "Soler + infinitive in the imperfect (solía tocar) expresses something someone used to do habitually. There is no clean single-word English equivalent — 'used to' is the closest. Soler is rarely used in the preterite; when you want to say someone habitually did something in the past, the imperfect of soler is the natural construction."
+        },
+        {
+          "heading": "De repente as a preterite trigger",
+          "body": "'De repente' (suddenly) signals a punctual interruption of the background scene. Whatever follows de repente almost always takes the preterite because the action is abrupt and completed. This is one of the clearest contextual clues for choosing the preterite mid-narrative."
+        },
+        {
+          "heading": "Estaba vs. toqué in the same sentence",
+          "body": "When an emotional or physical state (estaba nervioso) exists as background and a single action then occurs within it (toqué las notas), the state takes the imperfect and the action takes the preterite. The imperfect is the stage; the preterite is what happens on it. This two-tense pattern within one sentence is the core of the preterite/imperfect distinction."
+        },
+        {
+          "heading": "Narrative present tense as a closing anchor",
+          "body": "Shifting to the present tense at the end of a past-tense story (hoy, cuando toco) is a common literary device that connects past memory to ongoing present reality. It signals that the experience still matters now. Recognizing this shift — and not treating it as a mistake — is important for reading authentic Spanish narrative."
+        }
+      ]
+  },
+  "sentences": [
   {
     "id": 0,
     "translation": "When I was little, my grandfather used to play the guitar every night.",
@@ -126,3 +155,4 @@
     ]
   }
 ]
+}

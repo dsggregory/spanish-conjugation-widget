@@ -34,37 +34,74 @@ Security note: only files inside `./stories` with the `.json` extension are acce
 
 ## Story JSON format
 
-Each story JSON is an array of sentence objects. For each sentence:
+Each story JSON is an object with two top-level fields:
+
+- `overview` (object, optional) — metadata describing the story and any pedagogy notes. Structured as:
+  - `title` (string)
+  - `topic` (string)
+  - `tenses` (array of strings) — which tenses this story highlights
+  - `translation` (string) — an optional translation or summary line for the story
+  - `notes` (array of objects) — free-form notes; each note has:
+    - `heading` (string)
+    - `body` (string)
+- `sentences` (array) — list of sentence objects that make up the exercise
+
+Sentence object fields:
 
 - `id` (number) — unique identifier (can be 0-based or any integers, must be stable).
 - `translation` (string) — full-sentence translation in English; shown as a tooltip when you hover the sentence label ("Sentence N").
-- `parts` (array of strings) — textual fragments around blanks; its length must be
-  exactly `len(blanks) + 1`.
+- `parts` (array of strings) — textual fragments around blanks; its length must be exactly `len(blanks) + 1`.
 - `blanks` (array) — each blank has:
   - `infinitive` (string)
   - `answer` (string) — the correct conjugated form
-  - `tense` (string) — one of `"preterite" | "imperfect" | "present"`
+  - `tense` (string) — one of:
+    `present`, `preterite`, `imperfect`, `present_perfect`, `past_perfect`, `future`, `future_perfect`, `conditional`, `conditional_perfect`, `subjunctive_present`, `subjunctive_imperfect`
   - `hint` (string) — short hint displayed under the input
 - `rationale` (array of strings) — one explanation per blank, same length as `blanks`.
 
 Example (single sentence):
 
 ```json
-[
-  {
-    "id": 0,
-    "translation": "When I was little, my grandfather used to play the guitar.",
-    "parts": ["Cuando ", " pequeño, mi abuelo ", " tocar la guitarra."],
-    "blanks": [
-      {"infinitive": "ser", "answer": "era", "tense": "imperfect", "hint": "ser (yo, imperf.)"},
-      {"infinitive": "soler", "answer": "solía", "tense": "imperfect", "hint": "soler (él, imperf.)"}
-    ],
-    "rationale": [
-      "era → imperfecto: background state.",
-      "solía → imperfecto: habitual past action."
+{
+  "overview": {
+    "title": "Childhood Music",
+    "topic": "grandfather and guitar",
+    "tenses": ["imperfect", "preterite"],
+    "translation": "A brief memory about learning guitar.",
+    "notes": [
+      {"heading": "Backdrop vs. event", "body": "Use imperfect for background description and preterite for single, completed actions."}
     ]
-  }
-]
+  },
+  "sentences": [
+    {
+      "id": 0,
+      "translation": "When I was little, my grandfather used to play the guitar.",
+      "parts": [
+        "Cuando ",
+        " pequeño, mi abuelo ",
+        " tocar la guitarra."
+      ],
+      "blanks": [
+        {
+          "infinitive": "ser",
+          "answer": "era",
+          "tense": "imperfect",
+          "hint": "ser (yo, imperf.)"
+        },
+        {
+          "infinitive": "soler",
+          "answer": "solía",
+          "tense": "imperfect",
+          "hint": "soler (él, imperf.)"
+        }
+      ],
+      "rationale": [
+        "era → imperfecto: background state.",
+        "solía → imperfecto: habitual past action."
+      ]
+    }
+  ]
+}
 ```
 
 ## Ask AI for a new story
@@ -73,7 +110,17 @@ Here's a prompt you could paste into a new AI chat. Take the resulting JSON stor
 > Write a Spanish verb conjugation exercise as a JSON file using this exact structure:
 >
 > ```json
-> [
+> {
+> "overview": {
+>   "title": "Short title for the story",
+>   "topic": "What this story is about",
+>   "tenses": ["list", "of", "tenses", "used"],
+>   "translation": "Optional one-line translation or summary",
+>   "notes": [
+>     {"heading": "Tip or gotcha heading", "body": "Pedagogical note body text."}
+>   ]
+> },
+> "sentences": [
 >   {
 >     "id": 0,
 >     "translation": "Sentence translation in english.",
@@ -91,9 +138,11 @@ Here's a prompt you could paste into a new AI chat. Take the resulting JSON stor
 >     ]
 >   }
 > ]
+> }
 > ```
 >
 > Rules:
+> - `overview.notes` contains tips, gotchas, and pedagogical notes for the story
 > - `parts` always has exactly one more element than `blanks` — they interleave: part[0], blank[0], part[1], blank[1], etc.
 > - `tense` should be one of: `present`, `preterite`, `imperfect`, `present_perfect`, `past_perfect`, `future`, `future_perfect`, `conditional`, `conditional_perfect`, `subjunctive_present`, `subjunctive_imperfect`
 > - `rationale` has one entry per blank, explaining the grammar rule that determines the tense choice
@@ -105,6 +154,11 @@ Swap in your topic and target tenses at the bottom. For example:
 - *"a trip to a foreign city"* using *preterite, imperfect, and present perfect*
 - *"a career decision"* using *conditional, future perfect, and subjunctive*
 - *"childhood memories"* using *imperfect and preterite*
+
+### Backward compatibility
+
+- Older stories where `overview` is a simple string are still supported. They will be shown as a single note with heading "Overview".
+- Very old stories that place the array of sentences at the root (no container object) are also still loadable; the app auto-wraps them into the new container format at runtime.
 
 ## API
 

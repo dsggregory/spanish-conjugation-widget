@@ -1,4 +1,34 @@
-[
+{
+  "overview": {
+    "title": "El fin de semana con los amigos",
+    "topic": "Planning a weekend mountain hike with friends",
+    "tenses": [
+      "present",
+      "future",
+      "conditional",
+      "subjunctive_imperfect"
+    ],
+    "translation": "The weekend with the boys",
+    "notes": [
+      {
+        "heading": "Present tense for immediate future plans vs. future tense for deliberate intentions",
+        "body": "'Voy a las montañas este fin de semana' (present) treats the plan as already a settled reality — immediate, certain, done. 'Saldremos a las seis' (future) feels more like a deliberate scheduled commitment — an itinerary. Both express future events, but the present conveys proximity and certainty while the future signals deliberate planning. Neither is more correct; the choice shifts the register."
+      },
+      {
+        "heading": "Si + present indicative (open conditional) vs. si + imperfect subjunctive (contrary-to-fact)",
+        "body": "These two si-clause structures must not be confused. 'Si el tiempo está bueno' (present indicative) = genuinely possible, open condition. 'Si tuviéramos más tiempo' (imperfect subjunctive) = hypothetical, contrary to current fact. The result clause follows accordingly: open condition → future ('será espectacular'); contrary-to-fact → conditional ('nos quedaríamos'). Crucially, Spanish never uses the future indicative directly after si — 'si estará' is always wrong."
+      },
+      {
+        "heading": "Irregular future stems",
+        "body": "Several common verbs have irregular future stems that must be memorized: salir → saldr-, querer → querr-, tener → tendr-, poder → podr-, saber → sabr-, hacer → har-, decir → dir-, venir → vendr-. The endings are regular (-é, -ás, -á, -emos, -éis, -án); only the stem changes. These same irregular stems are used for the conditional tense, so learning them once covers both tenses."
+      },
+      {
+        "heading": "Future tense for confident predictions about others",
+        "body": "'Querrán parar a descansar' uses the future not because it is planned but because it is a confident prediction about what others will want. The future tense in Spanish covers both scheduled events and speaker predictions or assumptions. This predictive use has no clean parallel in English, where 'they will want' and 'they are going to want' feel nearly identical. In Spanish, the simple future leans more toward prediction; ir a + infinitive leans more toward intention."
+      }
+    ]
+  },
+  "sentences": [
   {
     "id": 0,
     "translation": "This weekend I'm going to the mountains with my friends — something I've been eagerly looking forward to for weeks.",
@@ -145,3 +175,4 @@
     ]
   }
 ]
+}

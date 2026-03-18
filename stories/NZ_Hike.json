@@ -1,4 +1,32 @@
-[
+{
+  "overview": {
+    "title": "Mi caminata en Nueva Zelanda",
+    "topic": "A solo hike through valleys and hills, ending exhausted at a refuge",
+    "tenses": [
+      "preterite",
+      "imperfect"
+    ],
+    "translation": "My hike in New Zealand",
+    "notes": [
+      {
+        "heading": "Ver in the preterite vs. imperfect",
+        "body": "'Vi el lago' means I caught sight of it — a single moment of perception, completed and discrete. 'Veía el lago' means I was looking at it / it was in my view — an ongoing sensory experience. English 'I saw' covers both, which is why this distinction trips up English speakers. The rule: use preterite for the instant something registers; use imperfect for the continuous experience of perceiving it."
+      },
+      {
+        "heading": "Simultaneous ongoing actions with mientras",
+        "body": "Sentence 4 stacks three imperfects inside a mientras frame: caminaba, escuchaba, sentía. All three are simultaneous ongoing sensory states with no clear beginning or end. When multiple background actions overlap in time, all of them take the imperfect. Only an interruption or a completed event within them would switch to the preterite."
+      },
+      {
+        "heading": "Quedarse dormido as a change-of-state preterite",
+        "body": "'Me quedé dormido' in the preterite expresses the moment of falling asleep — a punctual change of state, not an ongoing condition. Compare with 'estaba dormido' (imperfect), which describes the state of being asleep. Quedarse, ponerse, volverse, and hacerse are all change-of-state verbs that typically appear in the preterite when describing the instant the change occurred."
+      },
+      {
+        "heading": "Sequential preterites to close a narrative",
+        "body": "The final sentence chains three preterites (llegué, quité, me quedé) describing end-of-day actions one after another. Sequential completed actions narrated in order all take the preterite. The chain reads like a checklist of events that happened and are done. This contrasts sharply with sentence 4's three simultaneous imperfects, and putting them back-to-back in the story makes the structural difference visceral."
+      }
+    ]
+  },
+  "sentences": [
   {
     "id": 0,
     "translation": "The trail was steep and the wind was blowing hard when I climbed the first hill.",
@@ -136,3 +164,4 @@
     ]
   }
 ]
+}

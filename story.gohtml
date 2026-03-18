@@ -1,5 +1,49 @@
 {{/* Story partial (server-rendered with go-template, loaded by HTMX) */}}
-{{/* expects StoryViewData { Sentences, Tenses } */}}
+{{/* expects StoryViewData { Overview, Sentences, Tenses } */}}
+
+{{ if .Overview }}
+<div class="card" style="margin-bottom: 14px;">
+  <div style="display:flex; align-items:center; justify-content: space-between; gap: 12px;">
+    <div style="font-weight:600; font-size:0.95rem; color:#333;">{{ if .Overview.Title }}{{ .Overview.Title }}{{ else }}Story overview{{ end }}</div>
+    <button id="btn-overview" onclick="toggleOverview()" style="cursor:pointer; font-family: inherit; font-size: 0.82rem; background:#fff; border:1px solid #ccc; border-radius:8px; padding:6px 10px;">Show</button>
+  </div>
+  <div id="overview" style="display:none; margin-top: 10px; font-size:0.92rem; line-height:1.55; color:#2b2b2b; background:#fff8e1; border-left:3px solid #f59e0b; padding:8px 12px; border-radius:8px;">
+    {{ if .Overview.Topic }}
+      <div style="font-size:0.86rem; color:#555; margin-bottom:6px;"><strong>Topic:</strong> {{ .Overview.Topic }}</div>
+    {{ end }}
+    {{ if .Overview.Translation }}
+      <div style="font-size:0.86rem; color:#555; margin-bottom:6px;"><strong>Translation:</strong> {{ .Overview.Translation }}</div>
+    {{ end }}
+    {{ if .Overview.Tenses }}
+      <div class="legend" style="margin: 6px 0 8px 0;">
+        {{ range .Overview.Tenses }}
+          <div class="leg-item"><span class="badge {{ badgeClass . }}">{{ badgeLabel . }}</span></div>
+        {{ end }}
+      </div>
+    {{ end }}
+    {{ if .Overview.Notes }}
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        {{ range .Overview.Notes }}
+          <div>
+            {{ if .Heading }}<div style="font-weight:600; color:#333; margin-bottom:4px;">{{ .Heading }}</div>{{ end }}
+            {{ if .Body }}<div style="white-space:pre-wrap;">{{ .Body }}</div>{{ end }}
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+  <script>
+    function toggleOverview() {
+      var el = document.getElementById('overview');
+      var btn = document.getElementById('btn-overview');
+      if (!el || !btn) return;
+      var show = el.style.display === 'none' || el.style.display === '';
+      el.style.display = show ? 'block' : 'none';
+      btn.textContent = show ? 'Hide' : 'Show';
+    }
+  </script>
+  </div>
+{{ end }}
 
 {{ if .Tenses }}
 <div>Tenses included in this story:<br/></div>

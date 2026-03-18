@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Spanish Verb Exercise</title>
+    <!-- Favicon: Spanish flag stripes with a verb "V" overlay -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23c60b1e'/><rect y='16' width='64' height='32' fill='%23ffc400'/><text x='32' y='44' text-anchor='middle' font-family='Arial, sans-serif' font-size='36' fill='%23ffffff' font-weight='700'>V</text></svg>">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -14,7 +16,8 @@
             line-height: 1.6;
         }
         .container { max-width: 780px; margin: 0 auto; }
-        h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem; }
+        h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 28px; height: 28px; flex: 0 0 auto; border-radius: 4px; }
         .subtitle { font-size: 0.875rem; color: #666; margin-bottom: 1.5rem; }
 
         /* Legend */
@@ -97,7 +100,10 @@
 </head>
 <body>
 <div class="container">
-    <h1>Spanish Verb Exercise</h1>
+    <h1>
+        <img class="logo-icon" alt="Spanish verb icon" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23c60b1e'/><rect y='16' width='64' height='32' fill='%23ffc400'/><text x='32' y='44' text-anchor='middle' font-family='Arial, sans-serif' font-size='36' fill='%23ffffff' font-weight='700'>V</text></svg>">
+        Spanish Verb Exercise
+    </h1>
     <p class="subtitle">Type the correct conjugation for each infinitive, then check your answers.</p>
 
     <div style="margin-bottom: 0.75rem; font-size: 0.9rem; color: #444;">

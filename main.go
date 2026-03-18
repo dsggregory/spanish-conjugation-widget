@@ -33,6 +33,26 @@ type Sentence struct {
 	Rationale   []string `json:"rationale"` // one entry per blank
 }
 
+// Story is a container for a set of sentences, plus an optional overview
+// that describes gotchas or idiosyncrasies in the story.
+type Note struct {
+	Heading string `json:"heading"`
+	Body    string `json:"body"`
+}
+
+type Overview struct {
+	Title       string   `json:"title"`
+	Topic       string   `json:"topic"`
+	Tenses      []string `json:"tenses"`
+	Translation string   `json:"translation"`
+	Notes       []Note   `json:"notes"`
+}
+
+type Story struct {
+	Overview  *Overview  `json:"overview"`
+	Sentences []Sentence `json:"sentences"`
+}
+
 // CheckRequest is the JSON body sent by the browser on "Check answers".
 type CheckRequest struct {
 	SentenceID int      `json:"sentence_id"`
@@ -49,18 +69,43 @@ type CheckResult struct {
 // Exercise data (loaded from JSON file)
 // ---------------------------------------------------------------------------
 
-var sentences []Sentence
+var currentStory Story
 
 func loadSentencesFromFile(path string) error {
 	b, err := os.ReadFile(path)
 	if err != nil {
 		return err
 	}
+	// First try to parse as the current Story container format (with structured Overview).
+	var obj Story
+	if err := json.Unmarshal(b, &obj); err == nil {
+		if obj.Sentences != nil { // accept if sentences array present (even if empty)
+			currentStory = obj
+			return nil
+		}
+	}
+	// Backward compatibility: Story v1 where overview was a simple string.
+	type storyV1 struct {
+		Overview  string     `json:"overview"`
+		Sentences []Sentence `json:"sentences"`
+	}
+	var objV1 storyV1
+	if err := json.Unmarshal(b, &objV1); err == nil {
+		if objV1.Sentences != nil || objV1.Overview != "" {
+			var ov *Overview
+			if strings.TrimSpace(objV1.Overview) != "" {
+				ov = &Overview{Notes: []Note{{Heading: "Overview", Body: objV1.Overview}}}
+			}
+			currentStory = Story{Overview: ov, Sentences: objV1.Sentences}
+			return nil
+		}
+	}
+	// Backward compatibility: parse legacy format (array of sentences at root).
 	var data []Sentence
 	if err := json.Unmarshal(b, &data); err != nil {
 		return err
 	}
-	sentences = data
+	currentStory = Story{Overview: nil, Sentences: data}
 	return nil
 }
 
@@ -120,7 +165,7 @@ func handleSentences(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(sentences)
+	json.NewEncoder(w).Encode(currentStory.Sentences)
 }
 
 func handleCheck(w http.ResponseWriter, r *http.Request) {
@@ -137,9 +182,9 @@ func handleCheck(w http.ResponseWriter, r *http.Request) {
 
 	// Find the sentence.
 	var s *Sentence
-	for i := range sentences {
-		if sentences[i].ID == req.SentenceID {
-			s = &sentences[i]
+	for i := range currentStory.Sentences {
+		if currentStory.Sentences[i].ID == req.SentenceID {
+			s = &currentStory.Sentences[i]
 			break
 		}
 	}
@@ -269,6 +314,7 @@ func tenseLegendDesc(tense string) string {
 
 // StoryViewData is the data model for the story partial template.
 type StoryViewData struct {
+	Overview  *Overview
 	Sentences []Sentence
 	Tenses    []string
 }
@@ -317,7 +363,11 @@ func handleStory(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	data := StoryViewData{Sentences: sentences, Tenses: collectTenses(sentences)}
+	ov := currentStory.Overview
+	if isOverviewEmpty(ov) {
+		ov = nil
+	}
+	data := StoryViewData{Overview: ov, Sentences: currentStory.Sentences, Tenses: collectTenses(currentStory.Sentences)}
 	if err := tmplStory.ExecuteTemplate(w, "story.gohtml", data); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -352,11 +402,43 @@ func handleLoadStory(w http.ResponseWriter, r *http.Request) {
 	}
 	// Render the story partial with the newly loaded sentences.
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	data := StoryViewData{Sentences: sentences, Tenses: collectTenses(sentences)}
+	ov := currentStory.Overview
+	if isOverviewEmpty(ov) {
+		ov = nil
+	}
+	data := StoryViewData{Overview: ov, Sentences: currentStory.Sentences, Tenses: collectTenses(currentStory.Sentences)}
 	if err := tmplStory.ExecuteTemplate(w, "story.gohtml", data); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+}
+
+// isOverviewEmpty returns true if the structured overview has no meaningful content.
+func isOverviewEmpty(o *Overview) bool {
+	if o == nil {
+		return true
+	}
+	if strings.TrimSpace(o.Title) != "" {
+		return false
+	}
+	if strings.TrimSpace(o.Topic) != "" {
+		return false
+	}
+	if strings.TrimSpace(o.Translation) != "" {
+		return false
+	}
+	if len(o.Tenses) > 0 {
+		return false
+	}
+	if len(o.Notes) > 0 {
+		// Consider notes meaningful if any note has non-empty heading or body
+		for _, n := range o.Notes {
+			if strings.TrimSpace(n.Heading) != "" || strings.TrimSpace(n.Body) != "" {
+				return false
+			}
+		}
+	}
+	return true
 }
 
 // ---------------------------------------------------------------------------
