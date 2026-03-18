@@ -106,9 +106,15 @@
     </h1>
     <p class="subtitle">Type the correct conjugation for each infinitive, then check your answers.</p>
 
-    <div style="margin-bottom: 0.75rem; font-size: 0.9rem; color: #444;">
-        <input type="checkbox" id="toggle-badges" checked>
-        <label for="toggle-badges">Hide tense badges</label>
+    <div style="margin-bottom: 0.75rem; font-size: 0.9rem; color: #444; display:flex; gap:16px; align-items:center; flex-wrap: wrap;">
+        <span>
+          <input type="checkbox" id="toggle-badges" checked>
+          <label for="toggle-badges">Hide tense badges</label>
+        </span>
+        <span>
+          <input type="checkbox" id="toggle-validate-on-blur">
+          <label for="toggle-validate-on-blur">Validate blanks when filled</label>
+        </span>
     </div>
 
     <div style="margin-bottom: 1rem; font-size: 0.9rem; color: #444; display: flex; gap: 10px; align-items: center;">
@@ -149,18 +155,14 @@
         if (evt && evt.target && evt.target.id === 'story') {
             // Reload sentence metadata first, then wire inputs and update UI
             loadSentences().then(() => {
-                document.querySelectorAll('.blank-group input').forEach(inp => {
-                    inp.addEventListener('input', updateProgress);
-                });
+                wireBlankInputs();
                 updateProgress();
                 if (typeof applyBadgeVisibility === 'function') {
                     applyBadgeVisibility();
                 }
             }).catch(() => {
                 // Even if metadata fails, try to wire inputs to avoid breaking UX
-                document.querySelectorAll('.blank-group input').forEach(inp => {
-                    inp.addEventListener('input', updateProgress);
-                });
+                wireBlankInputs();
                 updateProgress();
                 if (typeof applyBadgeVisibility === 'function') {
                     applyBadgeVisibility();
@@ -168,6 +170,78 @@
             });
         }
     });
+
+    // Preference: validate on blur
+    let validateOnBlur = false;
+    const validateToggler = document.getElementById('toggle-validate-on-blur');
+    // Load persisted preference if any
+    try {
+        const saved = localStorage.getItem('validateOnBlur');
+        if (saved === 'true' || saved === 'false') {
+            validateOnBlur = (saved === 'true');
+            validateToggler.checked = validateOnBlur;
+        }
+    } catch (_) {}
+    validateToggler.addEventListener('change', () => {
+        validateOnBlur = validateToggler.checked;
+        try { localStorage.setItem('validateOnBlur', String(validateOnBlur)); } catch (_) {}
+    });
+
+    function wireBlankInputs() {
+        document.querySelectorAll('.blank-group input').forEach(inp => {
+            // Progress update on typing
+            inp.addEventListener('input', updateProgress);
+            // Clear correctness styling when user edits
+            inp.addEventListener('input', () => {
+                if (inp.classList.contains('revealed')) return;
+                // Keep only revealed class if present; otherwise clear to default
+                inp.classList.remove('correct');
+                inp.classList.remove('incorrect');
+            });
+            // Validate this one field on blur if enabled
+            inp.addEventListener('blur', () => {
+                if (!validateOnBlur) return;
+                if (inp.classList.contains('revealed')) return;
+                const val = (inp.value || '').trim();
+                if (val === '') return;
+                validateSingleInput(inp).catch(() => {/* ignore */});
+            });
+        });
+    }
+
+    async function validateSingleInput(inp) {
+        // Expect id format: inp-<sid>-<bi>
+        const m = /^inp-(\d+)-(\d+)$/.exec(inp.id || '');
+        if (!m) return;
+        const sid = parseInt(m[1], 10);
+        const bi = parseInt(m[2], 10);
+        const s = sentenceData.find(ss => ss.id === sid);
+        if (!s) return;
+        // Build answers array for this sentence from current inputs
+        const answers = s.blanks.map((_, i) => {
+            const el = document.getElementById('inp-' + sid + '-' + i);
+            return el ? el.value : '';
+        });
+        try {
+            const res = await fetch('/api/check', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ sentence_id: sid, answers })
+            });
+            const data = await res.json();
+            if (!Array.isArray(data.results) || typeof data.results[bi] !== 'boolean') return;
+            if (inp.classList.contains('revealed')) return;
+            if (data.results[bi]) {
+                inp.classList.remove('incorrect');
+                inp.classList.add('correct');
+            } else {
+                inp.classList.remove('correct');
+                inp.classList.add('incorrect');
+            }
+        } catch (_) {
+            // Network or server error — do nothing interactive
+        }
+    }
 
     function updateProgress() {
         let filled = 0, total = 0;
